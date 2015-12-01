@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SpriteFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" CssFileName="../images" ImageName="img" IsPhone="false" SpriteImgFileType="Png" xmlns="CssSprite">
+  <SpriteList>
+    <Sprite Path="icon_dowm.png" LocationX="0" LocationY="0" />
+    <Sprite Path="icon_Search.png" LocationX="0" LocationY="19" />
+    <Sprite Path="icon-github.png" LocationX="0" LocationY="51" />
+  </SpriteList>
+</SpriteFile>
