@@ -1,6 +1,7 @@
 window.onload = function () {
     function start() {
         var show = $("div"); //显示剩余时间的div
+        $("input").value = "2016-12-21";
 
         function clickStart() {
             var time = $("input").value.match(/(^\d{4})-(\d{2})-(\d{2}$)/); //获取年月日的正则方法
