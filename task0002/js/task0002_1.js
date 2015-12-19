@@ -8,9 +8,9 @@
             len = unValue.length;
         if (len > 10 || unValue == "") {
             $("p").style.display = "block";
-            addEvent(inp, "focu")
         } else {
             $("p").style.display = "none";
+            out.innerHTML = "";
             for (; i < len; i++) {
                 var trimValue = trim(unValue[i]); //对每一项进行去除首尾空格操作
                 console.log(trimValue);
