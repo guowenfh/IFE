@@ -120,7 +120,37 @@ function isMobilePhone(phone) {
 
 
 //DOM部分
+function hasClass(element, sClass) {
+    return element.className.match(new RegExp("(\\s|^)" + sClass + "(\\s|$)"));
+}
 
+// 为element增加一个样式名为newClassName的新样式
+function addClass(element, newClassName) {
+    if (!hasClass(element, newClassName)) {
+        element.className += " " + newClassName;
+    }
+}
+
+// 移除element中的样式oldClassName
+function removeClass(element, oldClassName) {
+    if (hasClass(element, oldClassName)) {
+        var reg = new RegExp("(\\s|^)" + oldClassName + "(\\s|$)");
+        element.className = element.className.replace(reg, "");
+    }
+}
+
+// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值
+function isSiblingNode(element, siblingNode) {
+    return element.parentNode === siblingNode.parentNode
+}
+
+// 获取element相对于浏览器窗口的位置，返回一个对象{x, y}
+function getPosition(element) {
+    var position = {};
+    position.x = element.getBoundingClientRect().left + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft); //获取相对位置+滚动距离=绝对位置.
+    position.y = element.getBoundingClientRect().top + Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    return position;
+}
 
 /**
  * $函数的依赖函数，选择器函数
@@ -279,8 +309,8 @@ $.click = function (selector, listener) {
 $.enter = function (selector, listener) {
     return addEnterEvent($(selector), listener);
 };
-$.delegate = function (element, tag, eventName, listener) {
-    return delegateEvent(element, tag, eventName, listener);
+$.delegate = function (selector, tag, eventName, listener) {
+    return delegateEvent($(selector), tag, eventName, listener);
 };
 
 
@@ -345,7 +375,7 @@ function removeCookie(cookieName) {
  *
  *@returns {XMLHttpRequest} 发送请求的XMLHttpRequest对象
  */
-function AJAX(url, options) {
+function ajax(url, options) {
     //1.创建ajax对象
     var oAjax = null;
     /**
