@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>输入框即时提示</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            padding: 20px;
+        }
+        
+        div ul,
+        div ul li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: block;
+        }
+        
+        div input {
+            display: block;
+            height: 22px;
+            line-height: 22px;
+            width: 200px;
+        }
+        
+        div ul {
+            display: none;
+            width: 200px;
+            position: absolute;
+            background-color: #F1F1F1;
+        }
+        
+        div ul li {
+            height: 22px;
+            line-height: 22px;
+            border-bottom: 1px solid #fff;
+        }
+        
+        .active {
+            background-color: cadetblue;
+        }
+        
+        span {
+            color: orangered;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>输入框提示:</h2>
+    <ul>
+        <li>数据放在task0002_4.txt中,使用AJAX获取</li>
+        <li>允许使用鼠标点击选中提示栏中的某个选项</li>
+        <li>允许使用键盘上下键来选中提示栏中的某个选项，回车确认选中</li>
+        <li>选中后，提示内容变更到输入框中</li>
+    </ul>
+    <h4>输入a或b试试 ^_^</h4>
+    <div>
+        <input type="text">
+        <ul>
+        </ul>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/task0002_4.js"></script>
+</body>
+
+</html>
