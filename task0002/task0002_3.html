@@ -4,9 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>图片轮播</title>
+    <link rel="stylesheet" href="css/task0002_3.css">
 </head>
 
 <body>
+    <div class="title">
+        <h2>可复用的图片轮播组件：</h2>
+        <h3>可选配置项如下：<span>JSON格式</span></h3>
+        <ol>
+            <li><span>noLoop</span> 不循环？默认为循环，只要存在则不循环</li>
+            <li><span>reverse</span> 反向？默认正向，且只有<span>noLoop</span>不存在时，也就是只有循环时，才执行。</li>
+            <li><span>intervalTime</span> 轮播间隔时间（单位为毫秒），默认为4000</li>
+        </ol>
+        <h4>左右箭头题目未要求，但是顺便实现了。</h4>
+
+    </div>
+    <div class="Slideshow">
+        <div class="imgContainer">
+            <img src="img/1.jpg" alt="小乔">
+            <img src="img/2.jpg" alt="桂纶镁">
+            <img src="img/3.jpg" alt="动漫">
+            <img src="img/4.jpg" alt="静谧">
+            <img src="img/5.jpg" alt="桂纶镁">
+            <img src="img/6.jpg" alt="小乔">
+        </div>
+
+    </div>
+
     <script src="js/util.js"></script>
     <script src="js/task0002_3.js"></script>
 </body>

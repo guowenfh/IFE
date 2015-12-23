@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 40px;
+    min-width: 560px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+
+/*标题*/
+
+.title h2,
+.title h3,
+.title h4 {
+    margin-bottom: 15px;
+}
+
+.title ol {
+    padding-left: 40px;
+}
+
+.title li {
+    list-style: decimal;
+    margin-bottom: 8px;
+}
+
+.title span {
+    background-color: #eee;
+    color: red;
+}
+
+
+/*轮播部分*/
+
+.Slideshow {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.imgContainer {
+    position: absolute;
+    left: 0;
+}
+
+.imgContainer img {
+    display: block;
+    float: left;
+    width: 500px;
+    height: 300px;
+}
+
+.Slideshow-nav {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 5%;
+}
+
+.Slideshow-nav li {
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-left: 5px;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Slideshow-nav li:first-child {
+    margin-left: 0;
+}
+
+.Slideshow-nav .active {
+    background-color: #000;
+    border: 1px solid #000;
+}
+
+.left-right span {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 50px;
+    font-weight: bold;
+    z-index: 999;
+    color: #eee;
+    cursor: pointer
+}
+
+.left-right span:hover {
+    color: #eee;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.left-right .nav-right {
+    right: 5%;
+}
+
+.left-right .nav-left {
+    left: 5%;
+}
