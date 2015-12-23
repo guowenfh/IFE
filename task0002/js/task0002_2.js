@@ -1,4 +1,6 @@
-window.onload = function () {
+window.onload = winLoad();
+
+function winLoad() {
     function start() {
         var show = $("div"); //显示剩余时间的div
         $("input").value = "2016-12-21";
@@ -11,7 +13,7 @@ window.onload = function () {
                 var date = setTime.getTime() - thisTime.getTime(); //得出相差的时间为毫秒数
                 var lefttime = parseInt((setTime.getTime() - thisTime.getTime()) / 1000); //得到相差秒数
                 var d = parseInt(lefttime / (60 * 60 * 24)); //天
-                var h = parseInt(lefttime / (60 * 60) % 24); //秒
+                var h = parseInt(lefttime / (60 * 60) % 24); //时
                 var m = parseInt(lefttime / 60 % 60); //分
                 var s = parseInt(lefttime % 60); //秒
                 show.innerHTML = "距离" + setTime.getFullYear() + "年" + (setTime.getMonth() + 1) + "月" + setTime.getDate() + "日，还有" + d + "天" + h + "小时" + m + "分" + s + "秒";
