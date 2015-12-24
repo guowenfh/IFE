@@ -121,7 +121,11 @@ function isMobilePhone(phone) {
 
 //DOM部分
 function hasClass(element, sClass) {
-    return element.className.match(new RegExp("(\\s|^)" + sClass + "(\\s|$)"));
+    if (element && element.className) {
+        return element.className.match(new RegExp("(\\s|^)" + sClass + "(\\s|$)"));
+    } else {
+        false;
+    }
 }
 
 // 为element增加一个样式名为newClassName的新样式
@@ -476,7 +480,6 @@ function getStyle(element, attr) {
  */
 function startMove(element, json, func) {
     var flag = true; //假设所有运动到达终点.
-    clearInterval(element.timer);
     element.timer = setInterval(function () {
         for (var attr in json) {
             //1.取当前的属性值。

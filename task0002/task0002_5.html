@@ -4,11 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <title>拖拽交互</title>
+    <link rel="stylesheet" href="css/task0002_5.css">
 </head>
 
 <body>
+    <div class="title">
+        <h2>拖拽交互</h2>
+        <h3>交互效果如下：</h3>
+        <ol>
+            <li>使用js添加随机颜色，便于显示交互</li>
+            <li>存在碰撞时，如下：</li>
+            <ul>
+                <li>同一父元素中碰撞，交互位置。</li>
+                <li>不同父元素中碰撞，碰撞到块时，添加到其前。</li>
+                <li>不同父元素中碰撞，未碰撞到块时，删除原位置块，添加到新的父元素。</li>
+            </ul>
+            <li>不存在碰撞时，回答原位置</li>
+            <li>自动处理原父元素中剩余块位置（自动往下掉）。</li>
+            <li>目前存在问题：</li>
+            <ul>
+                <li>在回到原位过程中，再次点击拖拽，会回到点击的位置。</li>
+                <li>边界限制做的一般</li>
+                <li>未阻止默认行为。有时会出现莫名的Bug，不知道从何找起。。</li>
+            </ul>
+        </ol>
+    </div>
+    <div class="drag-block clearfix">
+        <ul class="left-ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="right-ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
     <script src="js/util.js"></script>
-    <script src="js/task0002_4.js"></script>
+    <script src="js/task0002_5.js"></script>
 </body>
 
 </html>
