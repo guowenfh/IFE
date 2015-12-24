@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 40px;
+}
+
+.clearfix:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.title {
+    margin-bottom: 30px;
+}
+
+.title ol {
+    padding-left: 40px;
+}
+
+.title ol ul {
+    padding-left: 20px;
+}
+
+.drag-block ul,
+.drag-block li {
+    list-style: none;
+}
+
+.drag-block {
+    height: 600px;
+    width: 550px;
+    position: relative;
+}
+
+.drag-block ul {
+    float: left;
+    height: 480px;
+    width: 150px;
+    border: 1px solid #333;
+}
+
+.right-ul {
+    margin-left: 200px;
+}
+
+.drag-block ul li {
+    display: block;
+    height: 60px;
+    width: 150px;
+    box-sizing: border-box;
+    background-color: #ddd;
+    cursor: move;
+    border-bottom: 1px solid #333;
+}
+
+.create-active {
+    display: block;
+    height: 60px;
+    width: 150px;
+    box-sizing: border-box;
+    background-color: #ddd;
+    cursor: move;
+    border-bottom: 1px solid #333;
+}
+
+.drag-block ul li.active {
+    border: 1px dashed #FF0000;
+}
