@@ -249,7 +249,7 @@ function winLoad() {
             return true;
         }
     }
-    //获取两点直接的距离
+    //获取两点直线的距离
     function getDis(obj1, obj2) {
         var a = obj1.offsetLeft - obj2.offsetLeft;
         var b = obj1.offsetTop - obj2.offsetTop;
