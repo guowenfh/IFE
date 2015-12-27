@@ -473,12 +473,13 @@ function getStyle(element, attr) {
 /**
  * 完美运动框架
  * @param {HTMLElement} element 运动对象
- * @param {JSON}        json    属性：目标值      
+ * @param {JSON}        json    属性：目标值
  *   @property {String} attr    属性值
  *   @config   {Number} target  目标值
  * @param {function}    func    可选，回调函数，链式动画。
  */
 function startMove(element, json, func) {
+    clearInterval(element.timer);
     var flag = true; //假设所有运动到达终点.
     element.timer = setInterval(function () {
         for (var attr in json) {
@@ -492,8 +493,7 @@ function startMove(element, json, func) {
             //2.算运动速度,动画缓冲效果
             var iSpeed = (json[attr] - iCurrent) / 10; //(目标值-当前值)/缩放系数=速度
             iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed); //速度取整
-
-            //3.未到达目标值时，执行代码 
+            //3.未到达目标值时，执行代码
             if (iCurrent != json[attr]) {
                 flag = false; //终止条件
                 if (attr === "opacity") { //为透明度时，执行
