@@ -6,7 +6,13 @@ div,a,header,footer,nav,li,ul,h1,h2,h3,h4,h5,p,img,body,html,form,input,button,t
 body{font: 12px/1.5 "微软雅黑";background-color: #eee;min-width: 980px;}
 img{border: none;}
 li{list-style: none;}
-input,select,textarea{outline: none;}
+input,button,select,textarea{
+
+        background:none;
+        outline:none;
+        border:none;
+        vertical-align:middle;
+    }
 a:hover{
     color:blue;
 }
@@ -294,14 +300,15 @@ a[disabled]{
     color:#FFF;
     border: 1px solid #ddd;
     border-left:none ;
+    cursor: pointer;
 }
 .search input:focus{
-    border: 1px solid #343434;
+    border: 1px solid #444;
     color: #000;
 }
 .search input:focus+button{
-    border: 1px solid #343434;
-    border-bottom: 1px solid #343434;
+    border: 1px solid #444;
+    border-bottom: 1px solid #444;
     border-left:none ;
 }
 .category{
