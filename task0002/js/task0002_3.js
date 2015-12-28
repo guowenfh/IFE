@@ -42,7 +42,7 @@ function winLoad() {
         if (option.intervalTime) {
             iSpeed = option.intervalTime;
         } else {
-            iSpeed = 2000;
+            iSpeed = 4000;
         }
         //2.实现自动播放
         timer = setInterval(autoPlay, iSpeed);
