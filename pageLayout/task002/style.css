@@ -1,274 +1,284 @@
 /*css重置*/
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label {
- margin: 0;
- padding: 0,-webkit-box-sizing: border-box;
- -moz-box-sizing: border-box;
- box-sizing: border-box;
+    margin: 0;
+    padding: 0,-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
- font-size: 12px;
- font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    font-size: 12px;
+    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
 }
 
 img {
- border: none;
+    border: none;
 }
 
 li {
- list-style: none;
+    list-style: none;
 }
 
 input,select,textarea,button {
- background: none;
+    background: none;
 /*解决输入框兼容问题*/
- outline: none;
+    outline: none;
 /*聚焦时样式*/
- border: none;
+    border: none;
 /*去除input的边框，自行设置*/
- box-sizing: border-box;
+    box-sizing: border-box;
 /*盒子模型*/
- vertical-align: middle;
+    vertical-align: middle;
 /*对不齐的问题*/
 }
 
 /* textarea {
  resize: none;
-}/*取消可拖动放大*/ */
+}/*取消可拖动放大*/*/
 a {
- text-decoration: none;
+    text-decoration: none;
 }
 
 .clearfix:before {
- content: "\200b";
- display: block;
- height: 0;
- clear: both;
+    content: "\200b";
+    display: block;
+    height: 0;
+    clear: both;
 }
 
 .clearfix:after {
- content: "\200b";
- display: block;
- height: 0;
- clear: both;
+    content: "\200b";
+    display: block;
+    height: 0;
+    clear: both;
 }
 /* 整体宽度控制 */
 .container {
- width: 95%;
- margin: 0 auto;
+    width: 95%;
+    margin: 0 auto;
 }
 
 .header {
     /* height: 60px; */
- background-color: #333;
+    background-color: #333;
 }
 
-
 .header h1 {
- float: left;
+    float: left;
 }
 
 .h-nav {
- float: right;
- height: 60px;
- line-height: 60px;
+    float: right;
+    height: 60px;
+    line-height: 60px;
 }
 
 .h-nav ul {
- margin-right: -20px;
+    margin-right: -20px;
 }
 
 .h-nav li {
- float: left;
+    float: left;
 }
 
 .h-nav li a {
- display: block;
- color: #fff;
- margin-right: 20px;
+    display: block;
+    color: #fff;
+    margin-right: 20px;
 }
+
 .main,.sidebar {
- padding-top: 20px;
- background-color: #DEDEDE;
+    padding-top: 20px;
+    background-color: #DEDEDE;
 }
 
 /*文章整体 */
 .article {
- background-color: #fff;
- border: 1px solid #CDCDCD;
- -webkit-box-shadow: 2px 2px #848484;
- box-shadow: 2px 2px #848484;
- padding: 35px 20px;
- margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #CDCDCD;
+    -webkit-box-shadow: 2px 2px #848484;
+    box-shadow: 2px 2px #848484;
+    padding: 35px 20px;
+    margin-bottom: 20px;
 }
 
 .article h2,.article h3 {
- font-size: 20px;
- margin-bottom: 20px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .article h3 {
- font-size: 16px;
+    font-size: 16px;
 }
 
 .article h3,.a-author span,.a-author time {
- color: #626365;
+    color: #626365;
 }
 
 .a-author {
- margin-bottom: 20px;
- color: #030700;
+    margin-bottom: 20px;
+    color: #030700;
 }
 
 .article .a-body p {
- text-indent: 2em;
- font-size: 16px;
- line-height: 1.5625;
+    text-indent: 2em;
+    font-size: 16px;
+    line-height: 1.5625;
 }
 
 .article .a-body a {
- text-decoration: underline;
- color: blue;
+    text-decoration: underline;
+    color: blue;
 }
 
 .article .a-body img {
- margin: 20px 0;
- display: block;
- height: 100%;
- width: 60%;
+    margin: 20px 0;
+    display: block;
+    height: 100%;
+    width: 60%;
 }
 
 .article .a-body li {
- height: 25px;
+    height: 25px;
 }
 /* 文章整体结束 */
 .article .img-wrap figure {
- width: 122px;
- height: 125px;
- border: 1px solid #CCC;
- padding: 10px 10px 0;
+    width: 122px;
+    height: 125px;
+    border: 1px solid #CCC;
+    padding: 10px 10px 0;
 }
 
 .img-wrap figure figcaption {
- text-align: center;
- margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .img-wrap figure img {
- width: 100%;
+    width: 100%;
 }
 
 .a-body .rank-list li {
- list-style-type: decimal;
- font-weight: 700;
+    list-style-type: decimal;
+    font-weight: 700;
 }
 
 .a-body .a-table {
- width: 100%;
- border: 1px solid #CBCBCB;
- border-collapse:collapse;
+    width: 100%;
+    border: 1px solid #CBCBCB;
+    border-collapse: collapse;
 }
 
 .a-table caption {
- font-weight: 700;
+    font-weight: 700;
 }
 
 .a-table thead {
- background-color: #333;
- font-weight: 700;
- color: #fff;
- text-align: left;
+    background-color: #333;
+    font-weight: 700;
+    color: #fff;
+    text-align: left;
 }
 
 .a-table tr {
- height: 25px;
- line-height: 25px;
+    height: 25px;
+    line-height: 25px;
 }
 
 .a-table th,.a-table td {
- border: 1px solid #CBCBCB;
- padding-left: 5px;
+    border: 1px solid #CBCBCB;
+    padding-left: 5px;
 }
 
-.a-table .active{
- background-color:#ccc ;
- border:none;
- font-weight: 700;
+.a-table .active {
+    background-color: #ccc;
+    border: none;
+    font-weight: 700;
 }
-
 
 .sidebar {
- padding-bottom: 20px;
-}
-.sidebar-main{
- background-color: #fff;
- border: 1px solid #CDCDCD;
- -webkit-box-shadow: 2px 2px #848484;
- box-shadow: 2px 2px #848484;
- padding: 30px 20px;
-}
-.sidebar-main h2{
- font-size: 14px;
- margin-bottom: 20px;
-
-}
-.form{
- padding-left: 23%;
+    padding-bottom: 20px;
 }
 
-.pass input,.email input{
- height:22px ;
- line-height: 22px;
- width:130px;
-border:1px solid #CDCDCD;
+.sidebar-main {
+    background-color: #fff;
+    border: 1px solid #CDCDCD;
+    -webkit-box-shadow: 2px 2px #848484;
+    box-shadow: 2px 2px #848484;
+    padding: 30px 20px;
 }
 
-.pass label,.email label,.form-options .option-set span,.text-area label{
- display:inline-block;
- height:22px;
- line-height: 22px;
- width:120px;
- text-align: right;
- padding-right: 10px;
+.sidebar-main h2 {
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
-.pass p,.email p{
- margin:10px 0 20px 125px;
- color:#ACA9B0;
+.form {
+    padding-left: 23%;
 }
-.pass :first-child{
- margin-bottom: 10px;
+
+.pass input,.email input {
+    height: 22px;
+    line-height: 22px;
+    width: 130px;
+    border: 1px solid #CDCDCD;
 }
-.option-set{
- margin-bottom: 10px;
+
+.pass label,.email label,.form-options .option-set span,.text-area label {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    width: 120px;
+    text-align: right;
+    padding-right: 10px;
 }
-.text-area label{
- float: left;
+
+.pass p,.email p {
+    margin: 10px 0 20px 125px;
+    color: #ACA9B0;
 }
-.option-set input{
- margin-right: 5px;
+
+.pass :first-child {
+    margin-bottom: 10px;
 }
-.text-area textarea{
- height:80px;
- width:65%;
- border:1px solid #9A9A9A;
+
+.option-set {
+    margin-bottom: 10px;
 }
- button{
- height:40px;
- text-align: center;
- line-height: 40px;
- font-weight: 700;
- width:95%;
- background-color: #3355D0;
- border:1px solid #C4CCCF;
- border-radius: 5px;
- color:#fff;
- margin:0 auto;
+
+.text-area label {
+    float: left;
 }
-footer{
- text-align: center;
-  background-color: #333;
-  color:#fff;
-  height:60px;
-  line-height: 60px;
+
+.option-set input {
+    margin-right: 5px;
 }
+
+.text-area textarea {
+    height: 80px;
+    width: 65%;
+    border: 1px solid #9A9A9A;
+}
+
+button {
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 700;
+    width: 95%;
+    background-color: #3355D0;
+    border: 1px solid #C4CCCF;
+    border-radius: 5px;
+    color: #fff;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+}
+
+
