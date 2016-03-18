@@ -1,7 +1,70 @@
+*,*:after,*:before{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+.clearfix:before,.clearfix:after{
+    content: "\200b";
+    display: block;
+    height: 0;
+    clear:both;
+    visibility:hidden;
+}
+
+.bor-bgc{
+    border: 1px solid #999;
+    padding:20px;
+
+}
+/*整体容器设置*/
 .container{
     width: 95%;
     background-color:#eee;
-    border: 1px solid #999;
     margin: 0 auto;
-
 }
+/*整体容器结束*/
+
+/*左侧栏开始*/
+.left-sidebar{
+    float: left;
+    width:200px;
+    padding:20px;
+    margin-left: -100%;
+    background-color: #fff;
+}
+.left-sidebar img,.left-sidebar h2{
+    height:80px;
+    float: left;
+}
+.left-sidebar img{
+    display:block;
+    width: 80px;
+}
+.left-sidebar h2{
+    width: 78px;
+}
+/*左侧栏结束*/
+
+
+/*主内容区域开始*/
+.main{
+    float: left;
+    margin-left: 220px;
+    margin-right: 140px;
+    background-color: #fff;
+    word-wrap: wrap;
+}
+/*主内容区域结束*/
+
+
+/*右侧栏开始*/
+.right-sidebar{
+    float: left;
+    width:120px;
+    padding:20px;
+    overflow: hidden;
+    margin-left: -120px;
+}
+/*右侧栏结束*/
