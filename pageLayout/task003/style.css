@@ -5,6 +5,9 @@
     margin: 0;
     padding:0;
 }
+body{
+padding:20px;
+}
 .clearfix:before,.clearfix:after{
     content: "\200b";
     display: block;
@@ -16,34 +19,39 @@
 .bor-bgc{
     border: 1px solid #999;
     padding:20px;
-
+    background-color: #fff;
 }
 /*整体容器设置*/
 .container{
-    width: 95%;
     background-color:#eee;
     margin: 0 auto;
+    padding: 20px 160px 20px 240px;
+    border: 1px solid #666;
+    word-wrap: break-word;
+    min-width: 650px;
 }
 /*整体容器结束*/
 
 /*左侧栏开始*/
 .left-sidebar{
     float: left;
-    width:200px;
-    padding:20px;
+    width: 200px;
     margin-left: -100%;
-    background-color: #fff;
+    position: relative;
+    left: -220px;
 }
 .left-sidebar img,.left-sidebar h2{
     height:80px;
     float: left;
 }
 .left-sidebar img{
-    display:block;
     width: 80px;
 }
 .left-sidebar h2{
-    width: 78px;
+    width: 56px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 20px;
 }
 /*左侧栏结束*/
 
@@ -51,10 +59,11 @@
 /*主内容区域开始*/
 .main{
     float: left;
-    margin-left: 220px;
-    margin-right: 140px;
+    width: 100%;
     background-color: #fff;
-    word-wrap: wrap;
+}
+.main{
+    line-height: 1.6
 }
 /*主内容区域结束*/
 
@@ -62,9 +71,21 @@
 /*右侧栏开始*/
 .right-sidebar{
     float: left;
-    width:120px;
-    padding:20px;
-    overflow: hidden;
+    width: 120px;
     margin-left: -120px;
+    position: relative;
+    right: -140px;
+
+}
+.item-staff-logo{
+    margin-bottom:-20px;
+}
+.right-sidebar img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    border:1px solid #666;
+    float: left;
+    margin-bottom: 20px;
 }
 /*右侧栏结束*/
