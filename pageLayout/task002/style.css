@@ -1,5 +1,5 @@
 /*css重置*/
-body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label {
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label,figure {
     margin: 0;
     padding: 0;
 }
@@ -155,6 +155,7 @@ a {
     height: 125px;
     border: 1px solid #CCC;
     padding: 10px 10px 0;
+    margin: 10px;
 }
 
 .img-wrap figure figcaption {
@@ -253,7 +254,7 @@ a {
 }
 
 .pass p,.email p {
-    margin: 10px 0 20px 125px;
+    margin: 10px 0 20px 135px;
     color: #ACA9B0;
 }
 

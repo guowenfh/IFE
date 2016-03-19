@@ -1,6 +1,6 @@
 /*css重置*/
 
-body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label {
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label,figure {
     margin: 0;
     padding: 0;
 }
@@ -189,6 +189,8 @@ button {
     height: 125px;
     border: 1px solid #CCC;
     padding: 10px 10px 0;
+    float: left;
+    margin: 10px;
 }
 
 .img-wrap figure figcaption {
@@ -275,7 +277,7 @@ button {
 .sidebar-main h2 {
     font-size: 16px;
     height: 38px;
-    line-height:38px;
+    line-height: 38px;
     margin-bottom: 20px;
     padding-left: 10px;
     border-left: 3px solid #CACACA;
@@ -303,14 +305,14 @@ button {
     text-align: right;
     padding-right: 10px;
 }
+
 .pass p,
 .email p {
     margin: 10px 0 20px 125px;
     color: #ACA9B0;
 }
 
-
-.pass label{
+.pass label {
     margin-top: 15px;
 }
 
