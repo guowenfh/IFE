@@ -1,14 +1,22 @@
 /*css重置*/
+
 body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label {
     margin: 0;
-    padding: 0,-webkit-box-sizing: border-box;
+    padding: 0;
+}
+
+*,
+*:after,
+*before {
+    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 body {
     font-size: 12px;
-    font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    background-color: #DEDEDE;
 }
 
 img {
@@ -19,53 +27,57 @@ li {
     list-style: none;
 }
 
-input,select,textarea,button {
+input,
+select,
+textarea,
+button {
     background: none;
-/*解决输入框兼容问题*/
+    /*解决输入框兼容问题*/
     outline: none;
-/*聚焦时样式*/
+    /*聚焦时样式*/
     border: none;
-/*去除input的边框，自行设置*/
+    /*去除input的边框，自行设置*/
     box-sizing: border-box;
-/*盒子模型*/
+    /*盒子模型*/
     vertical-align: middle;
-/*对不齐的问题*/
+    /*对不齐的问题*/
 }
+
 
 /* textarea {
  resize: none;
-}/*取消可拖动放大*/*/
-a {
+}/*取消可拖动放大*/
+
+*/ a {
     text-decoration: none;
 }
 
-.clearfix:before {
+.clearfix:before,.clearfix:after {
     content: "\200b";
     display: block;
     height: 0;
     clear: both;
 }
 
-.clearfix:after {
-    content: "\200b";
-    display: block;
-    height: 0;
-    clear: both;
-}
-/* 整体宽度控制 */
-.container {
-    width: 95%;
-    margin: 0 auto;
-}
+
+/*顶部开始*/
 
 .header {
     /* height: 60px; */
     background-color: #333;
 }
 
+.header .container {
+    width: 95%;
+    margin: 0 auto;
+}
+
 .header h1 {
     float: left;
 }
+
+
+/*导航*/
 
 .h-nav {
     float: right;
@@ -87,12 +99,33 @@ a {
     margin-right: 20px;
 }
 
-.main,.sidebar {
-    padding-top: 20px;
-    background-color: #DEDEDE;
+
+/*顶部结束*/
+
+
+/*页面主体内容开始*/
+.two-column {
+    width: 98%;
+    margin: 0 auto;
 }
 
+.main,
+.sidebar {
+    padding-top: 20px;
+    /*background-color: #DEDEDE;*/
+}
+
+.main {
+    float: left;
+    width: 100%;
+    margin-right: -365px;
+}
+
+.main .container {
+    margin-right: 385px;
+}
 /*文章整体 */
+
 .article {
     background-color: #fff;
     border: 1px solid #CDCDCD;
@@ -102,7 +135,8 @@ a {
     margin-bottom: 20px;
 }
 
-.article h2,.article h3 {
+.article h2,
+.article h3 {
     font-size: 20px;
     margin-bottom: 20px;
 }
@@ -111,7 +145,9 @@ a {
     font-size: 16px;
 }
 
-.article h3,.a-author span,.a-author time {
+.article h3,
+.a-author span,
+.a-author time {
     color: #626365;
 }
 
@@ -141,7 +177,13 @@ a {
 .article .a-body li {
     height: 25px;
 }
+
+
 /* 文章整体结束 */
+
+
+/*文章图片展示开始*/
+
 .article .img-wrap figure {
     width: 122px;
     height: 125px;
@@ -158,10 +200,20 @@ a {
     width: 100%;
 }
 
+
+/*文章图片展示结束*/
+
+.rank-list {
+    padding-left: 40px;
+}
+
 .a-body .rank-list li {
     list-style-type: decimal;
     font-weight: 700;
 }
+
+
+/*内嵌表格开始*/
 
 .a-body .a-table {
     width: 100%;
@@ -185,7 +237,8 @@ a {
     line-height: 25px;
 }
 
-.a-table th,.a-table td {
+.a-table th,
+.a-table td {
     border: 1px solid #CBCBCB;
     padding-left: 5px;
 }
@@ -196,8 +249,19 @@ a {
     font-weight: 700;
 }
 
+
+/*内嵌表格结束*/
+
+
+/*页面主体结束*/
+
+
+/*侧边栏开始*/
+
 .sidebar {
+    float: right;
     padding-bottom: 20px;
+    width: 365px;
 }
 
 .sidebar-main {
@@ -209,37 +273,45 @@ a {
 }
 
 .sidebar-main h2 {
-    font-size: 14px;
+    font-size: 16px;
+    height: 38px;
+    line-height:38px;
     margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 3px solid #CACACA;
 }
 
-.form {
-    padding-left: 23%;
-}
 
-.pass input,.email input {
-    height: 22px;
-    line-height: 22px;
-    width: 130px;
+/*表单*/
+
+.pass input,
+.email input {
+    height: 26px;
+    line-height: 26px;
+    width: 140px;
     border: 1px solid #CDCDCD;
 }
 
-.pass label,.email label,.form-options .option-set span,.text-area label {
+.pass label,
+.email label,
+.form-options .option-set span,
+.text-area label {
     display: inline-block;
     height: 22px;
     line-height: 22px;
-    width: 120px;
+    width: 110px;
     text-align: right;
     padding-right: 10px;
 }
-
-.pass p,.email p {
+.pass p,
+.email p {
     margin: 10px 0 20px 125px;
     color: #ACA9B0;
 }
 
-.pass :first-child {
-    margin-bottom: 10px;
+
+.pass label{
+    margin-top: 15px;
 }
 
 .option-set {
@@ -250,13 +322,13 @@ a {
     float: left;
 }
 
-.option-set input {
+.option-set label {
     margin-right: 5px;
 }
 
 .text-area textarea {
     height: 80px;
-    width: 65%;
+    width: 55%;
     border: 1px solid #9A9A9A;
 }
 
@@ -273,6 +345,12 @@ button {
     margin: 0 auto;
 }
 
+
+/*侧边栏结束*/
+
+
+/*页脚开始*/
+
 footer {
     text-align: center;
     background-color: #333;
@@ -282,3 +360,4 @@ footer {
 }
 
 
+/*页脚结束*/
