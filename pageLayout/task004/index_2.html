@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <title>任务四：定位和居中问题：方法二</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .unrelated {
+        background-color: #fc0;
+        height: 400px;
+        width: 600px;
+    }
+
+    .parent {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 0;
+    }
+
+    .child {
+        height: 200px;
+        width: 400px;
+        background-color: #ccc;
+    }
+
+    .middle {
+        display: inline-block;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="unrelated parent ">
+        <div class="child middle"></div>
+    </div>
+</body>
+
+</html>
