@@ -225,5 +225,53 @@ body {
 }
 /*页面第一部分（新闻摘要）结束*/
 /*页面第二部分两栏布局开始*/
+.report-main{
+	margin-top: 75px;
+}
+.r-industry{
+	width: 458px;
+	float: right;
+	margin-left: 19px;
+	height: 200px;
+}
+.r-news{
+	width:415px;
+	overflow: hidden;
 
+}
+.r-n-title{
+	border-bottom: 2px solid #11456b;
+	font: 400 22px/1 "黑体";
+	color: #11456b;
+	padding-bottom: 10px;
+}
+.r-n-title h2{
+	margin-bottom: 10px;
+}
+
+.r-n-title h2 strong{
+	font-size: 52px;
+	color: #f5e327;
+	font-style: italic;
+	margin-right: 30px;
+}.
+.r-n-title p{
+	font-size: 23px;
+	font-weight: 700;
+}
+.r-n-body{
+
+}
+.r-n-body strong{
+	float: left;
+	font-size: 70px;
+	font-family: "Microsoft YaHei";
+	color: #f5e327;
+	margin-right: 5px;
+	font-weight: 400;
+}
+.r-n-body .r-n-cont .r-n-img{
+	float: right;
+	margin:20px  0 0 20px;
+}
 /*页面第二部分两栏布局结束*/
