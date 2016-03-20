@@ -1,0 +1,229 @@
+/*css重置*/
+
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label,figure {
+	margin: 0;
+	padding: 0;
+}
+
+*,*:after,*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 12px;
+	font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+img {
+	border: none;
+}
+
+li {
+	list-style: none;
+}
+
+input,
+select,
+textarea,
+button {
+	background: none;
+	/*解决输入框兼容问题*/
+	outline: none;
+	/*聚焦时样式*/
+	border: none;
+	/*去除input的边框，自行设置*/
+	box-sizing: border-box;
+	/*盒子模型*/
+	vertical-align: middle;
+	/*对不齐的问题*/
+}
+
+/* textarea {
+ resize: none;
+}/*取消可拖动放大*/
+
+a {
+	text-decoration: none;
+}
+
+.clearfix:before,.clearfix:after {
+	content: "\200b";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+/*css重置完成*/
+
+body {
+	min-width: 980px;
+}
+
+.wrapper {
+	width: 892px;
+	margin: 0 auto;
+	height: 1200px;
+	/*background-color: #eee;*/
+}
+/*页头开始*/
+.head {
+	border-bottom: 2px solid #938e8c;
+}
+
+.head-logo,.head-time {
+	font-family: "黑体";
+	line-height: 100px;
+	height: 61px;
+}
+
+.head-logo {
+	float: left;
+	width: 110px;
+	color: #fff;
+	background-color: #D45D5C;
+	text-indent: 1em;
+}
+
+.head-time {
+	color: #D45D5C;
+	float: right;
+}
+
+/*页头结束*/
+
+/*页面第一部分（新闻摘要）开始*/
+.trends-main {
+	margin-top: 33px;
+}
+/*布局*/
+.t-summary {
+	width: 641px;
+	overflow: hidden;
+}
+
+.t-sidebar {
+	width: 203px;
+	border-top: 2px solid #cc8091;
+	float: right;
+	margin-left: 48px;
+	height: 200px;
+}
+
+.t-banner {
+	position: relative;
+}
+
+.t-banner img {
+	width: 641px;
+	height: 301px;
+}
+/*主内容*/
+
+/*遮罩*/
+.t-left-mask,.t-right-mask {
+	width: 191px;
+	height: 301px;
+	position: absolute;
+	top: 0;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	/*考虑兼容性未直接使用rgba*/
+}
+
+/* 三栏内容  */
+.t-column{
+	margin-top: 40px;
+	margin-left: -30px;
+	overflow: hidden;
+}
+.t-column-item{
+	float: left;
+	width: 33.3%;
+	padding-left: 30px;
+	padding-bottom: 9999px;
+  margin-bottom: -9999px;
+}
+.t-column-item p{
+	font: 12px/16px "宋体";
+	color:#767777;
+	margin-top: 10px;
+
+}
+.t-column-item a{
+	font: 700  16px/1 "Microsoft YaHei";
+	text-decoration:underline;
+}
+.t-column-item-1 a{
+	color: #418c58;
+}
+.t-column-item-2 a{
+	color: #d2994f;
+}
+.t-column-item-3 a{
+	color: #cc7680;
+}
+.t-column-item-3 p{
+		margin-bottom: 30px;
+}
+.t-column-item-3 div span{
+		font-family: "Microsoft YaHei";
+		color:#CC4A48;
+		font-style: italic;
+}
+/*右侧内容*/
+.t-left-mask {
+	background-color: rgb(160,195,164);
+	left: 0;
+}
+
+.t-right-mask {
+	background-color: rgb(204,118,128);
+	right: 0;
+}
+
+.t-s-title h2 {
+	font: 400 21px/40px "Microsoft YaHei";
+	text-decoration: underline;
+}
+.t-s-title h2 span{
+	font-size: 29px;
+}
+.t-s-title P{
+	font-size: 12px/1 "楷体";
+	color: #676767;
+	word-spacing:4px;
+	margin-bottom: 10px;
+}
+.t-sidebar strong{
+	font: italic 116px/1 "Microsoft YaHei";
+	color: #75b88b;
+}
+.t-s-time{
+	font-family: "Microsoft YaHei";
+		color: #cc8091;
+}
+.t-s-time time{
+	font-size: 55px;
+	height: 55px;
+	line-height: 55px;
+	float: left;
+	margin-right:10px;
+}
+.t-s-time P{
+	margin-top:12px;
+	font-size:21px;
+	line-height: 26px;
+	height: 26px;
+}
+.t-s-time P small{
+	display: block;
+	font-size: 12px;
+	line-height: 12px;
+	color: #A7A3A1;
+}
+/*页面第一部分（新闻摘要）结束*/
+/*页面第二部分两栏布局开始*/
+
+/*页面第二部分两栏布局结束*/
