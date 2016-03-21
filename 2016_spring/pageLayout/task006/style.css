@@ -67,6 +67,7 @@ body {
     height: 1200px;
     /*background-color: #eee;*/
 }
+
 /*页头开始*/
 .head {
     border-bottom: 2px solid #938e8c;
@@ -191,7 +192,7 @@ body {
 }
 
 .t-s-title h2 {
-    font: 400 21px/40px "Microsoft YaHei";
+    font: 400 23px/40px "Microsoft YaHei";
     text-decoration: underline;
 }
 
@@ -241,6 +242,7 @@ body {
 /*页面第二部分两栏布局开始*/
 .report-main {
     margin-top: 75px;
+    margin-bottom: 40px;
 }
 
 .r-industry {
@@ -295,7 +297,12 @@ body {
     float: right;
     margin: 20px  0 0 20px;
 }
-
+.r-n-body P{
+    text-indent: 2em;
+}
+.r-n-body .r-n-cont {
+    text-indent: 0;
+}
 /*右侧*/
 .r-i-banner {
     position: relative;
@@ -439,7 +446,6 @@ body {
 /*页面第二部分两栏布局结束*/
 
 .foot {
-    margin-top: 30px;
     border-top: 1px solid #938e8c;
     position: relative;
     height: 41px;
