@@ -1,0 +1,27 @@
+/*第一表格部分*/
+table{
+    border-collapse: collapse;
+}
+table,th,td,tr{
+    border: 1px solid #333;
+}
+tbody tr:nth-child(2n){
+    /*color: red;*/
+    background-color: #ddd;
+}
+/*第二部分*/
+input {
+    width: 200px;
+    height: 40px;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+input:focus {
+    width: 400px;
+    height: 80px;
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
