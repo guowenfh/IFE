@@ -3,12 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
     <title>任务十二：学习CSS 3的新特性</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <table >
+    <!-- 第一部分表格 -->
+    <table>
         <thead>
             <tr>
                 <th>排名</th>
@@ -67,11 +70,26 @@
                 <td>百度前端技术学院</td>
                 <td>4000</td>
             </tr>
-
         </tbody>
     </table>
-    <p><br></p>
+    <p>
+        <br>
+    </p>
+    <!-- 第二部分 -->
     <input type="text">
+    <!-- 第三部分，纯css轮播图 -->
+    <div class="slide">
+        <div class="nav">
+            <a href="#li1"></a>
+            <a href="#li2"></a>
+            <a href="#li3"></a>
+        </div>
+        <ul class="image">
+            <li id="li1"></li>
+            <li id="li2"></li>
+            <li id="li3"></li>
+        </ul>
+    </div>
 </body>
 
 </html>
