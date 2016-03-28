@@ -149,13 +149,52 @@ a {
 /* 图标类结束 */
 
 
-/* hack */
+/* hack，抽离类 */
 
 .size0 {
     font-size: 0;
     -webkit-text-size-adjust: none;
 }
 
+/* 下划线 */
+.underline:after{
+  content:"";
+  position:absolute;
+  height:3px;
+  width:30px;
+  background-color: #fff;
+  top:100%;
+  left:50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.underline:hover:after{
+  width:150px;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+/* 三角 */
+.triangle:after{
+  content:"";
+  position:absolute;
+  border-style: solid;
+  border-width: 15px 25px;
+  border-color:transparent #fff transparent transparent;
+  height:0;
+  width:0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 /* 页面开始 */
 
@@ -341,29 +380,7 @@ a {
   position:relative;
 
 }
-.c-title h2:after{
-  content:"";
-  position:absolute;
-  height:3px;
-  width:30px;
-  background-color: #fff;
-  top:100%;
-  left:50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  -webkit-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  transition: all 0.8s;
 
-}
-.c-title h2:hover:after{
-  width:150px;
-  -webkit-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  transition: all 0.8s;
-}
 .c-title p{
   font-size:12px;
 }
@@ -492,30 +509,20 @@ a {
 .n-time-img{
   position:relative;
   float: left;
-  width:850px;
+  width:900px;
   height:565px;
   color:#fff;
   font-family: "Microsoft YaHei";
 }
 .n-time-img img{
-  width:850px;
+  width:900px;
   height:565px;
   position:absolute;
   z-index: -1;
 }
-.n-time-img:after{
-  content:"";
-  position:absolute;
-  border:20px solid;
+.n-time-img.triangle:after{
   border-color:transparent #fff transparent transparent;
-  height:0;
-  width:0;
   right:0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 .n-time-con{
   padding-top: 130px;
@@ -603,28 +610,8 @@ a {
   position:relative;
 }
 
-.new-read-more p:after{
-  content:"";
-  position:absolute;
-  height:3px;
-  width:30px;
-  background-color: #aaaaaa;
-  top:100%;
-  left:50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  -webkit-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  transition: all 0.8s;
-
-}
-.new-read-more p:hover:after{
-  width:150px;
-  -webkit-transition: all 0.8s;
-  -o-transition: all 0.8s;
-  transition: all 0.8s;
+.new-read-more .underline:after{
+  background-color: #aaa;
 }
 .new-read-more a{
   display: inline-block;
@@ -647,22 +634,23 @@ a {
 .new-read-more:first-child p:after{
   background-color: #fff;
 }
+.new-read-img{
+  position:relative;
+}
+.new-read-img img{
+  width:100%;
+  height:100%;
+}
+.new-read-img.triangle:after{
+  border-color:transparent  transparent transparent #fff;
+  left:-1px;
+}
+/* 第八部分  */
+.add-me{
 
+}
+.add-me-title{
 
-
-.n-time-img:after{
-  content:"";
-  position:absolute;
-  border:20px solid;
-  border-color:transparent #fff transparent transparent;
-  height:0;
-  width:0;
-  right:0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 /* 网页主体内容结束 */
 
