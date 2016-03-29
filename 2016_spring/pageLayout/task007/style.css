@@ -647,10 +647,26 @@ a {
 }
 /* 第八部分  */
 .add-me{
-
+  padding-top: 120px;
 }
 .add-me-title{
-
+  text-align: center;
+}
+.add-me-title h3{
+  color:#333;
+  font-size: 20px;
+  font-family: "simHei";
+  margin-bottom: 28px;
+  position:relative;
+  padding-bottom: 12px;
+}
+.add-me-title p{
+  color:#b0b0b0;
+  line-height: 18px;
+  font-family: "Microsoft YaHei";
+}
+.add-me-title .underline:after{
+  background-color: #e8504e;
 }
 /* 网页主体内容结束 */
 
