@@ -68,9 +68,10 @@ button {
 }
 
 
-/* textarea {
+ textarea {
  resize: none;
-}/*取消可拖动放大*/
+}
+/* 取消可拖动放大 */
 
 a {
     text-decoration: none;
@@ -840,18 +841,47 @@ a {
 .add-me-form {
     overflow: hidden;
 }
-.add-me-form>div{
-margin-bottom: 14px;
+.add-me-form .form-add{
+    margin-bottom: 14px;
+    margin-left: -20px;
+
 }
-.add-me-form  label {
+.add-me-form .form-add  label {
     float:left;
-    width: 50%;
+    width: 310px;
+    margin-left: 20px;
     background-color: #ededed;
     height:40px;
     line-height: 40px;
+    color:#6c6868;
+    padding-left: 12px;
 }
 
+.add-me-form .textarea{
+    background-color: #ededed;
+    color:#6c6868;
+    width:640px;
+    padding: 16px;
+    margin-bottom: 14px;
 
+}
+.add-me-form .textarea label{
+    float: left;
+}
+.add-me-form textarea{
+    overflow:auto;
+    width:460px;
+    height:150px;
+}
+.add-me-form  button{
+    width:640px;
+    height:40px;
+    background-color: #ededed;
+    text-align:center;
+    line-height: 40px;
+    color:#333;
+    font-size: 14px;
+}
 /* 网页主体内容结束 */
 
 
