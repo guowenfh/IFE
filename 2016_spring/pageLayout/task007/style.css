@@ -872,7 +872,7 @@ a {
 .add-me-form textarea{
     overflow:auto;
     width:460px;
-    height:150px;
+    height:120px;
 }
 .add-me-form  button{
     width:640px;
@@ -885,5 +885,12 @@ a {
 }
 /* 网页主体内容结束 */
 
-
+.attention{
+    height:355px;
+    background-color: #32353e;
+}
+.copyright{
+    height:60px ;
+    background-color: #2f2f38;
+}
 /* 页面完结 */
