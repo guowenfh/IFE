@@ -3,8 +3,6 @@
 *,
 *:after,
 *:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -39,26 +37,32 @@ div.div-4 {
 }
 
 .wrap {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
     -webkit-justify-content: space-between;
-    justify-content: space-between;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
     -ms-align-items: center;
-    align-items: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 
 @media (max-width: 640px) {
     .wrap {
         -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+                flex-wrap: wrap;
         -ms-align-items: flex-start;
-        align-items: flex-start;
+        -webkit-align-items: flex-start;
+            -ms-flex-align: start;
+                align-items: flex-start;
     }
     .div-4{
-        order: -1;
+        -webkit-order: -1;
+            -ms-flex-order: -1;
+                order: -1;
     }
 }

@@ -5,30 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="x-ua-compatible" content="IE=Edge, chrome=1" />
+    <!-- 允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 忽略将页面中的数字识别为电话号码 -->
+    <meta content="telephone=no" name="format-detection">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 百度禁止转码 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
     <title></title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- 整体宽度开始 -->
-    <div class="wrapper">
-        <!-- 页头开始 -->
-        <header class="head clearfix">
-
-        </header>
-        <!-- 页头结束 -->
-        <!-- 网页主体内容开始 -->
-        <section class="content ">
-
-        </section>
-        <!-- 网页主体内容开始 -->
-        <!-- 页脚开始 -->
-        <footer class="foot">
-        </footer>
-        <!-- 页脚结束 -->
-    </div>
-    <!-- 整体宽度控制结束 -->
-
+    <!-- 页头开始 -->
+    <header class="head ">
+        <div class="wrap ">
+            <span class="back">返回</span>
+            <h1>这是标题</h1>
+        </div>
+    </header>
+    <!-- 页头结束 -->
+    <!-- 网页主体内容开始 -->
+    <section class="content ">
+        <!-- 导航 -->
+        <nav class="wrap">
+            <ul class="nav flex">
+                <li><a href="##">导航</a></li>
+                <li class="active"><a href="##">导航</a></li>
+                <li><a href="##">导航</a></li>
+                <li><a href="##">导航</a></li>
+                <li><a href="##">导航</a></li>
+            </ul>
+        </nav>
+        <!-- banner图 -->
+        <div class="banner">
+            <img src="img/banner.jpg" alt="banner">
+        </div>
+        <!-- 标签分栏 -->
+        <div class="wrap">
+            <ul class="the-tag flex">
+                <li><a href="##"><div class="tag-icon"></div>标签</a></li>
+                <li><a href="##"><div class="tag-icon"></div>标签</a></li>
+                <li><a href="##"><div class="tag-icon"></div>标签</a></li>
+                <li><a href="##"><div class="tag-icon"></div>标签</a></li>
+                <li><a href="##"><div class="tag-icon"></div>标签</a></li>
+            </ul>
+            <div class="column flex ">
+                <div class="col-item">
+                    <div><img src="img/column-1.jpg" alt="column-1"></div>
+                    <h2>分栏一</h2>
+                    <div>分栏小标题</div>
+                </div>
+                <div class="col-item">
+                    <div><img src="img/column-2.jpg" alt="column-2"></div>
+                    <h2>分栏二</h2>
+                    <div>分栏小标题</div>
+                </div>
+                <div class="col-item">
+                    <div><img src="img/column-3.jpg" alt="column-3"></div>
+                    <h2>分栏三</h2>
+                    <div>分栏小标题</div>
+                </div>
+            </div>
+        </div>
+        <div class="hr-20"></div>
+        <!--  -->
+    </section>
+    <!-- 网页主体内容开始 -->
+    <!-- 页脚开始 -->
+    <footer class="foot">
+    </footer>
+    <!-- 页脚结束 -->
 </body>
 
 </html>

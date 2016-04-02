@@ -22,15 +22,11 @@ input {
     margin-bottom: 50px;
     width: 200px;
     height: 40px;
-    -webkit-transition: all 1s ease-in-out ;
-    -o-transition: all 1s ease-in-out ;
     transition: all 1s ease-in-out ;
 }
 input:focus {
     width: 400px;
     height: 80px;
-    -webkit-transition: all 1s ease-in-out ;
-    -o-transition: all 1s ease-in-out ;
     transition: all 1s ease-in-out ;
 }
 
@@ -66,8 +62,6 @@ input:focus {
     left:50%;
     bottom:10px;
     -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 .nav a{
