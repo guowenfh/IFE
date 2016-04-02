@@ -1,58 +1,64 @@
 /*css重置*/
 
-body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label,figure {
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-*,*:after,*:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 body {
-    font-size: 12px;
-    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    padding: 20px;
 }
 
-img {
-    border: none;
+.wrap div {
+    width: 150px;
+    border: 1px solid #f00;
+    padding: 10px;
+    margin: 10px;
 }
 
-li {
-    list-style: none;
+.div-1 {
+    height: 120px;
 }
 
-input,
-select,
-textarea,
-button {
-    background: none;
-    /*解决输入框兼容问题*/
-    outline: none;
-    /*聚焦时样式*/
-    border: none;
-    /*去除input的边框，自行设置*/
-    box-sizing: border-box;
-    /*盒子模型*/
-    vertical-align: middle;
-    /*对不齐的问题*/
+.div-2 {
+    height: 100px;
 }
 
-/* textarea {
- resize: none;
-}/*取消可拖动放大*/
-
-a {
-    text-decoration: none;
+.div-3 {
+    height: 40px;
 }
 
-.clearfix:before,.clearfix:after {
-    content: "\200b";
-    display: block;
-    height: 0;
-    clear: both;
+div.div-4 {
+    height: 200px;
+    border-color: #00f;
 }
 
-/*css重置完成*/
+.wrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+
+@media (max-width: 640px) {
+    .wrap {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .div-4{
+        order: -1;
+    }
+}
