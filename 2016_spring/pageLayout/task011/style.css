@@ -13,7 +13,9 @@ body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,
 
 body {
     font-size: 12px;
-    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
+    user-select: none;
 }
 
 img {
@@ -23,7 +25,9 @@ img {
 li {
     list-style: none;
 }
-
+a, img {
+    -webkit-touch-callout: none; /* 禁止长按链接与图片弹出菜单 */
+}
 input,
 select,
 textarea,
