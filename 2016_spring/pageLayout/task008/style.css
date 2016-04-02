@@ -1,59 +1,10 @@
 /*css重置*/
-
-body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,th,tr,img,div,dl,dt,dd,input,label,figure {
-    margin: 0;
-    padding: 0;
-}
-
 *,*:after,*:before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
-body {
-    font-size: 12px;
-    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
-}
-
-img {
-    border: none;
-}
-
-li {
-    list-style: none;
-}
-
-input,
-select,
-textarea,
-button {
-    background: none;
-    /*解决输入框兼容问题*/
-    outline: none;
-    /*聚焦时样式*/
-    border: none;
-    /*去除input的边框，自行设置*/
-    box-sizing: border-box;
-    /*盒子模型*/
-    vertical-align: middle;
-    /*对不齐的问题*/
-}
-
-/* textarea {
- resize: none;
-}/*取消可拖动放大*/
-
-a {
-    text-decoration: none;
-}
-
-.clearfix:before,.clearfix:after {
-    content: "\200b";
-    display: block;
-    height: 0;
-    clear: both;
-}
-
 /*css重置完成*/
 
