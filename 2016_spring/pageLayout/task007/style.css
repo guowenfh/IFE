@@ -274,6 +274,7 @@ a {
 .head .h-nav {
     float: right;
     font-size: 14px;
+    height:55px;
 }
 
 .h-nav li {
@@ -289,14 +290,10 @@ a {
     color: #787b83;
 }
 
-.h-nav li.active,
-.h-nav li:hover {
-    border-bottom: 5px solid #ea6f6e;
-}
-
 .h-nav li.active a,
 .h-nav li:hover a {
     color: #ea6f6e;
+    border-bottom: 5px solid #ea6f6e;
 }
 
 .head .h-login {
@@ -947,11 +944,14 @@ a {
     font-size: 15px;
     font-weight: 600;
     word-spacing: 10px;
+    cursor:pointer;
+
 }
 
 .share {
     margin-top: 35px;
     text-align: center;
+    font-size: 0;
 }
 
 .share .icon-img {
