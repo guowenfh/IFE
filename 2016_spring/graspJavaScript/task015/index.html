@@ -76,10 +76,12 @@
      * 格式见ul中的注释的部分
      */
     function render(data) {
-        var oUl =document.getElementById("resort");
-        for(var i = 0,len=data.length;i<len;i++){
-            oUl.innerHTML += "<li>"+data[i][0]+"空气质量：<b>"+data[i][1]+"</b></li>";
+        var oUl = document.getElementById("resort");
+        var str ='';
+        for (var i = 0, len = data.length; i < len; i++) {
+             str+= "<li>" + data[i][0] + "空气质量：<b>" + data[i][1] + "</b></li>";
         }
+        oUl.innerHTML = str;
     }
 
     function btnHandle() {
@@ -91,7 +93,7 @@
 
     function init() {
         var btn = document.getElementById("sort-btn");
-        btn.addEventListener("click",btnHandle,false);
+        btn.addEventListener("click", btnHandle, false);
         // 在这下面给sort-btn绑定一个点击事件，点击时触发btnHandle函数
 
     }
