@@ -75,20 +75,25 @@
     <p>
         <br>
     </p>
+
     <!-- 第二部分 -->
     <input type="text">
     <!-- 第三部分，纯css轮播图 -->
-    <div>
-        <div class="nav">
-            <a href="#li1" id="a1"disable ></a>
-            <a href="#li2" id="a2"></a>
-            <a href="#li3" id="a3"></a>
-        </div>
-        <div class="slide_container">
+    <!-- 这里比较忏愧，copy to internet 没有完全掌握，按道理来说使用a标签的形式也是可以的。为什么没达到切换的效果。。 -->
+    <div id="opts">
+        <label for="inp1"></label>
+        <label for="inp2"></label>
+        <label for="inp3"></label>
+    </div>
+    <div class="silde-show">
+        <input type="radio" checked name="slide" id="inp1">
+        <input type="radio" name="slide" id="inp2">
+        <input type="radio" name="slide" id="inp3">
+        <div id="wrap">
             <ul id="slide">
-                <li id="li1">1</li>
-                <li id="li2">2</li>
-                <li id="li3">3</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
             </ul>
         </div>
     </div>

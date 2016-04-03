@@ -1,33 +1,52 @@
 /*第一表格部分*/
-*{
+
+* {
     margin: 0;
     padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-body{
+
+body {
     padding: 20px;
 }
-table thead{
+
+table thead {
     background-color: #000;
     color: #fff;
 }
-tbody tr:nth-child(1),tbody tr:nth-child(2),tbody tr:nth-child(3){
+
+tbody tr:nth-child(1),
+tbody tr:nth-child(2),
+tbody tr:nth-child(3) {
     color: red;
 }
-tbody tr:nth-child(2n){
+
+tbody tr:nth-child(2n) {
     background-color: #ddd;
 }
+
+
 /*第二部分*/
+
 input {
     margin-bottom: 50px;
     width: 200px;
     height: 40px;
-    transition: all 1s ease-in-out ;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
+
 input:focus {
     width: 400px;
     height: 80px;
-    transition: all 1s ease-in-out ;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
 
@@ -35,64 +54,256 @@ input:focus {
 
 
 /* 导航点 */
-.nav {
-    position:absolute;
+
+#opts {
+    position: absolute;
     z-index: 2;
     margin-top: 130px;
     margin-left: 110px;
 }
-.nav a{
-    float:left;
+
+#opts label {
+    float: left;
     display: block;
-    height:10px;
-    width:10px;
-    background-color: #000;
+    height: 10px;
+    width: 10px;
+    background-color: #666;
     margin-left: 10px;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
 }
-.nav a:first-child{
+
+#opts label:hover {
+    background-color: #000;
+}
+
+#opts label:first-child {
     margin-left: 0;
 }
 
 
-.slide_container{
-    width:200px;
+/* 容器设置 */
+
+#wrap {
+    width: 200px;
     overflow: hidden;
 }
-.slide_container #slide li{
-    width:200px;
-    height:150px;
+
+#wrap #slide li {
+    width: 200px;
+    height: 150px;
     float: left;
     text-align: center;
-    font-size: 20px;
+    font-size: 50px;
     font-weight: bold;
     line-height: 150px;
+    list-style: none;
 }
 
-#slide li:nth-child(1){
+#slide li:nth-child(1) {
     background-color: #932;
 }
-#slide li:nth-child(2){
-    background-color: #eee;
-}
-#slide li:nth-child(3){
-    background-color: yellow;
+
+#slide li:nth-child(2) {
+    background-color: #398;
 }
 
-.slide_container #slide{
-    list-style: none;
-    width:600px;
-    -webkit-animation:slide 3s ease-out infinite;
+#slide li:nth-child(3) {
+    background-color: #456;
+}
+
+#slide {
+    width: 600px;
+    -webkit-animation: slide1 3s ease-out infinite;
+    animation: slide1 3s ease-out infinite;
+}
+
+
+/*修改动画名称*/
+
+#inp1:checked ~ #wrap #slide {
+    -webkit-animation-name: slide1;
+    animation-name: slide1;
+}
+
+#inp2:checked ~ #wrap #slide {
+    -webkit-animation-name: slide2;
+    animation-name: slide2;
+}
+
+#inp3:checked ~ #wrap #slide {
+    -webkit-animation-name: slide3;
+    animation-name: slide3;
+}
+
+
+/*短暂地取消动画名称，模拟重启动画*/
+
+#inp1:active ~ #wrap #slide {
+    -webkit-animation-name: none;
+    animation-name: none;
+    margin-left: 0;
+}
+
+#inp2:active ~ #wrap #slide {
+    -webkit-animation-name: none;
+    animation-name: none;
+    margin-left: -200px;
+}
+
+#inp3:active ~ #wrap #slide {
+    -webkit-animation-name: none;
+    animation-name: none;
+    margin-left: -400px;
 }
 
 
 /*创建三种动画策略*/
-@-webkit-keyframes slide {
-  0% { margin-left:0;}
-  23% { margin-left:0;}
-  33% { margin-left:-200px;}
-  56% { margin-left:-200px;}
-  66% { margin-left:-400px;}
-  90% { margin-left:-400px;}
-  100% {margin-left:0;}
+
+@-webkit-keyframes slide1 {
+    0% {
+        margin-left: 0;
+    }
+    23% {
+        margin-left: 0;
+    }
+    33% {
+        margin-left: -200px;
+    }
+    56% {
+        margin-left: -200px;
+    }
+    66% {
+        margin-left: -400px;
+    }
+    90% {
+        margin-left: -400px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@keyframes slide1 {
+    0% {
+        margin-left: 0;
+    }
+    23% {
+        margin-left: 0;
+    }
+    33% {
+        margin-left: -200px;
+    }
+    56% {
+        margin-left: -200px;
+    }
+    66% {
+        margin-left: -400px;
+    }
+    90% {
+        margin-left: -400px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@-webkit-keyframes slide2 {
+    0% {
+        margin-left: -200px;
+    }
+    23% {
+        margin-left: -200px;
+    }
+    33% {
+        margin-left: -400px;
+    }
+    56% {
+        margin-left: -400px;
+    }
+    66% {
+        margin-left: 0;
+    }
+    90% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -200px;
+    }
+}
+
+@keyframes slide2 {
+    0% {
+        margin-left: -200px;
+    }
+    23% {
+        margin-left: -200px;
+    }
+    33% {
+        margin-left: -400px;
+    }
+    56% {
+        margin-left: -400px;
+    }
+    66% {
+        margin-left: 0;
+    }
+    90% {
+        margin-left: 0;
+    }
+    100% {
+        margin-left: -200px;
+    }
+}
+
+@-webkit-keyframes slide3 {
+    0% {
+        margin-left: -400px;
+    }
+    23% {
+        margin-left: -400px;
+    }
+    33% {
+        margin-left: 0;
+    }
+    56% {
+        margin-left: 0;
+    }
+    66% {
+        margin-left: -200px;
+    }
+    90% {
+        margin-left: -200px;
+    }
+}
+
+@keyframes slide3 {
+    0% {
+        margin-left: -400px;
+    }
+    23% {
+        margin-left: -400px;
+    }
+    33% {
+        margin-left: 0;
+    }
+    56% {
+        margin-left: 0;
+    }
+    66% {
+        margin-left: -200px;
+    }
+    90% {
+        margin-left: -200px;
+    }
+}
+
+
+/* 隐藏单选框 */
+
+.silde-show input {
+    display: none;
 }
