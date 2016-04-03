@@ -1,38 +1,7 @@
-/*css重置*/
-
-body,
-ul,
-ol,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-form,
-fieldset,
-table,
-td,
-th,
-tr,
-img,
-div,
-dl,
-dt,
-dd,
-input,
-label,
-figure {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-*,
-*:after,
-*:before {
-    box-sizing: border-box;
 }
 
 html {
@@ -41,7 +10,7 @@ html {
 
 body {
     font-size: 12px;
-    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, "Microsoft Yahei", STHeiTi, sans-serif;
     -webkit-user-select: none;
     /* 禁止选中文本（如无文本选中需求，此为必选项） */
     -moz-user-select: none;
@@ -83,12 +52,13 @@ a {
     margin: 0 auto;
 }
 
-
 .flex {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 }
+
+
 /* 页头 */
 
 .head {
@@ -109,12 +79,18 @@ a {
     font-size: 20px;
 }
 
+.nav {
+    /* -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; */
+    -webkit-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+}
 
 .nav li {
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
     text-align: center;
+    width: 20%;
 }
 
 .nav li a {
@@ -127,14 +103,15 @@ a {
 
 .banner {
     margin-bottom: 0.2rem;
-    width:100%;
+    width: 100%;
 }
-.banner img{
-    width:100%;
+
+.banner img {
+    width: 100%;
 }
 
 .nav li.active a,
-.nav li.hover a {
+.nav li:hover a {
     border-bottom: 5px solid #8dd8d6;
 }
 
@@ -165,11 +142,13 @@ a {
     font-size: 13px;
     font-weight: 600;
 }
-.column{
+
+.column {
     padding-top: 0.15rem;
     padding-bottom: 0.15rem;
 }
-.col-item{
+
+.col-item {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
@@ -177,23 +156,129 @@ a {
     padding-left: 6.1%;
     padding-right: 6.3%;
 }
-.col-item{
+
+.col-item {
     border-left: 2px solid #DEDEDE;
 }
-.col-item:first-child{
+
+.col-item:first-child {
     border-left: none;
 }
-.col-item h2{
+
+.col-item h2 {
     margin-top: 0.06rem;
     margin-bottom: 0.06rem;
     font-size: 16px;
 }
-.col-item div{
+
+.col-item div {
     font-size: 14px;
-    color:#ccc;
+    color: #ccc;
 }
 
-.hr-20{
-    height:0.2rem;
-    background-color:#F5F5F5;
+.hr-20 {
+    height: 0.2rem;
+    background-color: #F5F5F5;
+}
+
+.module {
+    padding-top: 0.1rem;
+}
+
+.module h2 {
+    font-size: 20px;
+    margin-bottom: 0.1rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.info-img {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.info-img img {
+    height: 1.2rem;
+}
+
+.info-text {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-line-pack: justify;
+    -webkit-align-content: space-between;
+    align-content: space-between;
+}
+
+.text-con {
+    -ms-flex-preferred-size: 100%;
+    -webkit-flex-basis: 100%;
+    flex-basis: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.text-con div {
+    background-color: #F8F8F8;
+    text-align: center;
+    width: 100%;
+    height: 0.55rem;
+    line-height: 0.55rem;
+    margin-bottom: 0.1rem;
+    margin-left: 0.1rem;
+}
+.article{
+    padding-top: 0.1rem;
+
+}
+.article-list {
+    position: relative;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.article-list .a-l-img {
+    float: left;
+    width: 38%;
+    margin-right: 2%;
+}
+
+.article-list .a-l-con {
+    float: left;
+    width: 60%;
+}
+
+.article-list .a-l-con h3 {
+    font-size: 22px;
+    color: #333;
+}
+
+.article-list .a-l-con p {
+    position: absolute;
+    bottom: 0.1rem;
+    left: 40%;
+    color: #C1C1C1;
+}
+
+.article-more ul {
+    margin-bottom: 0.1rem;
+}
+
+.article-more li {
+    float: left;
+    width: 33.333%;
+    padding: 1%;
+}
+
+.article-more p {
+    color: #C1C1C1;
 }
