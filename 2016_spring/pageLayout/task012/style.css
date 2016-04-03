@@ -32,37 +32,14 @@ input:focus {
 
 
 /* 第三部分。 */
-.slide{
-    width:200px;
-    overflow: hidden;
-    position: relative;
 
-}
-.slide .image{
-    list-style: none;
-    width:600px;
-}
-.slide .image li{
-    width:200px;
-    height:150px;
-    float: left;
-}
-.slide .image li:nth-child(1){
-    background-color: #932;
-}
-.slide .image li:nth-child(2){
-    background-color: #eee;
-}
-.slide .image li:nth-child(3){
-    background-color: yellow;
-}
+
+/* 导航点 */
 .nav {
     position:absolute;
-    z-index: 9999;
-    left:50%;
-    bottom:10px;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
+    z-index: 2;
+    margin-top: 130px;
+    margin-left: 110px;
 }
 .nav a{
     float:left;
@@ -75,4 +52,47 @@ input:focus {
 }
 .nav a:first-child{
     margin-left: 0;
+}
+
+
+.slide_container{
+    width:200px;
+    overflow: hidden;
+}
+.slide_container #slide li{
+    width:200px;
+    height:150px;
+    float: left;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 150px;
+}
+
+#slide li:nth-child(1){
+    background-color: #932;
+}
+#slide li:nth-child(2){
+    background-color: #eee;
+}
+#slide li:nth-child(3){
+    background-color: yellow;
+}
+
+.slide_container #slide{
+    list-style: none;
+    width:600px;
+    -webkit-animation:slide 3s ease-out infinite;
+}
+
+
+/*创建三种动画策略*/
+@-webkit-keyframes slide {
+  0% { margin-left:0;}
+  23% { margin-left:0;}
+  33% { margin-left:-200px;}
+  56% { margin-left:-200px;}
+  66% { margin-left:-400px;}
+  90% { margin-left:-400px;}
+  100% {margin-left:0;}
 }
