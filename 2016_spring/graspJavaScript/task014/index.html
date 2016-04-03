@@ -29,7 +29,7 @@
         将空气质量指数大于60的城市显示到aqi-list的列表中
         */
         var aList = document.getElementById("aqi-list");
-        // 数组排序，倒序排列，直接使用sort会按照
+        // 数组排序，倒序排列，直接使用sort会按照 Unicode 来排序
         var aqiDataSort = aqiData.sort(function(a, b) {
             return b[1] - a[1];
         });
@@ -37,9 +37,21 @@
         for (var i = 0, len = aqiDataSort.length; i < len; i++) {
             // 大于60才输出
             if (aqiDataSort[i][1] > 60) {
-                aList.innerHTML += "<li>第" + (i + 1) + "名：" + aqiDataSort[i][0] + ", 空气质量：" + aqiDataSort[i][1];
+                aList.innerHTML += "<li>第" + (i + 1) + "名：" + aqiDataSort[i][0] + ", 空气质量：" + aqiDataSort[i][1]+"</li>";
             }
         }
+
+        /**
+         * ES5版本
+         */
+        // aqiData.filter(function(item) {
+        //         return item[1] > 60;
+        //     }).sort(function(a, b) {
+        //         return b[1] - a[1];
+        //     }).forEach(function(item, index) {
+        //         aList.innerHTML += "<li>第" + (index + 1) + "名：" + aqiData[index][0] + ", 空气质量：" + aqiData[index][1];
+        //     });
+
     })();
     </script>
 </body>
