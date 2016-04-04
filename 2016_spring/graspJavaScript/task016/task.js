@@ -17,11 +17,14 @@ function addAqiData() {
     var city = document.getElementById("aqi-city-input").value.trim(); //城市输入框的值
     var cityValue = document.getElementById("aqi-value-input").value.trim(); //质量数据输入框的值
     var warnInfo = document.getElementById("warn-info"); //提示信息
-    if (city === "" || /[^\u4e00-\u9fa5a-z+]/gmi.test(city)) {
-        warnInfo.innerHTML = "城市只能输入中文或字母";
+    if (city === "" || cityValue === "") {
+        warnInfo.innerHTML = "任意一项不能为空！";
         return;
-    } else if (cityValue === "" || !/^\d+$/.test(cityValue)) {
-        warnInfo.innerHTML = "空气质量必须输入整数数字";
+    } else if (/[^\u4e00-\u9fa5a-z+]/gmi.test(city)) {
+        warnInfo.innerHTML = "城市只能输入中文或字母！";
+        return;
+    } else if (!/^\d+$/.test(cityValue)) {
+        warnInfo.innerHTML = "空气质量必须输入整数！";
         return;
     } else {
         warnInfo.innerHTML = "";
