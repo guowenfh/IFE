@@ -47,8 +47,7 @@ var aqiSourceData = {
     "厦门": randomBuildData(100),
     "沈阳": randomBuildData(500)
 };
-console.log(aqiSourceData["北京"])
-    // 用于渲染图表的数据
+// 用于渲染图表的数据
 var chartData = {};
 
 // 记录当前页面的表单选项
@@ -74,7 +73,6 @@ function renderChart() {
             return ["weekAqi", "6%"];
         } else if (nowGraTime == "month") {
             return ["monthAqi", "30%"];
-
         } else {
             return ["aqi", "1.01%"];
         }
