@@ -77,9 +77,9 @@
      */
     function render(data) {
         var oUl = document.getElementById("resort");
-        var str ='';
+        var str = '';
         for (var i = 0, len = data.length; i < len; i++) {
-             str+= "<li>" + data[i][0] + "空气质量：<b>" + data[i][1] + "</b></li>";
+            str += "<li>" + data[i][0] + "空气质量：<b>" + data[i][1] + "</b></li>";
         }
         oUl.innerHTML = str;
     }

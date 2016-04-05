@@ -24,12 +24,12 @@
         btn.onclick = function() {
             var aInput = document.getElementById("aqi-input");
             var aDisplay = document.getElementById("aqi-display");
-            if(/[^\d]/.test(aInput.value)){
+            if (/[^\d]/.test(aInput.value)) {
                 aDisplay.innerHTML = "请输入数值";
-                aDisplay.style.color="red";
-            }else{
+                aDisplay.style.color = "red";
+            } else {
                 aDisplay.innerHTML = aInput.value;
-                aDisplay.style.color="#000";
+                aDisplay.style.color = "#000";
             }
         };
 

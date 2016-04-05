@@ -49,11 +49,11 @@ function init() {
 var inp = document.getElementById("input");
 var list = document.getElementById("list");
 init();
-D:\Documents\GitHub\IFE\2016_spring\graspJavaScript\task018\task.js
 /**
- *  这里不在乎兼容性的话直接使用firstElementChild以及lastElementChild。
- *  非要使用获取子元素的方法的话，使用firstChild..等再判断节点类型为元素节点再进行添加删除等等。。（有些浏览器会把空白和文本节点算到里面，所以要判断）
- *  我为了偷懒就直接使用获取里面的li了。。
+ * 这里不在乎兼容性的话直接使用firstElementChild以及lastElementChild。
+ * 非要使用获取子元素的方法的话，使用firstChild..等再判断节点类型为元素节点再进行添加删除等等。。（有些浏览器会把空白和文本节点算到里面，所以要判断）
+ * 我为了偷懒就直接使用获取里面的li了。。
+ *
  */
 
 function leftIn() {
@@ -96,7 +96,7 @@ function leftOut() {
 
 function rightOut() {
     var Child = list.querySelectorAll("li");
-    var latChild = Child[Child.length-1];
+    var latChild = Child[Child.length - 1];
     if (latChild) {
         if (confirm("最后一个元素的值为：" + latChild.innerText + "，你确定要删除吗？")) {
             list.removeChild(latChild);
