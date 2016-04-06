@@ -1,39 +1,48 @@
 /*css重置*/
-*,*:after,*:before {
+
+*, *:after, *:before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
+
 /*css重置完成*/
-body{
-    color:red;
+
+body {
+    color: red;
     padding: 20px;
 }
+
 .container {
     padding-right: 20px;
     padding-left: 20px;
     margin-right: auto;
     margin-left: auto;
 }
-.row{
-}
-.row:after,.row:before{
+
+.row {}
+
+.row:after, .row:before {
     content: "";
     display: table;
     clear: both;
 }
+
+
 /* 展示 */
+
 .content {
     background-color: #eee;
     border: 1px solid #999;
-    padding:5px;
-    height:60px;
+    padding: 5px;
+    height: 60px;
 }
 
 .row [class*=col-] {
     float: left;
     min-height: 1px;
-    padding:10px;
+    padding: 10px;
 }
 
 @media (min-width: 769px) {
@@ -74,7 +83,8 @@ body{
         width: 8.33333333%;
     }
 }
-@media (max-width: 768px){
+
+@media (max-width: 768px) {
     .col-xs-12 {
         width: 100%;
     }

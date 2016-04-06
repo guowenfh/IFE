@@ -73,7 +73,7 @@ function winLoad() {
                 startMove(element, {
                     "left": iTaget
                 });
-                clearInterval(elemet.timer);
+                clearInterval(timer);
 
                 // element.style.left=iTaget+"px";
             });

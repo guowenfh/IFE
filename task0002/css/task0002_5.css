@@ -6,7 +6,6 @@
 body {
     padding: 40px;
 }
-
 .clearfix:after {
     content: "\200B";
     display: block;
@@ -30,8 +29,7 @@ body {
     padding-left: 20px;
 }
 
-.drag-block ul,
-.drag-block li {
+.drag-block ul, .drag-block li {
     list-style: none;
 }
 

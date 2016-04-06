@@ -1,38 +1,11 @@
 /*css重置*/
 
-html,
-body,
-ul,
-ol,
-li,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-form,
-fieldset,
-table,
-td,
-th,
-tr,
-img,
-div,
-dl,
-dt,
-dd,
-input,
-label,
-figure {
+html, body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, th, tr, img, div, dl, dt, dd, input, label, figure {
     margin: 0;
     padding: 0;
 }
 
-*,
-*:after,
-*:before {
+*, *:after, *:before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -51,10 +24,7 @@ li {
     list-style: none;
 }
 
-input,
-select,
-textarea,
-button {
+input, select, textarea, button {
     background: none;
     /*解决输入框兼容问题*/
     outline: none;
@@ -78,8 +48,7 @@ a {
     text-decoration: none;
 }
 
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .clearfix:after {
     content: "\200b";
     display: block;
     height: 0;
@@ -274,7 +243,7 @@ a {
 .head .h-nav {
     float: right;
     font-size: 14px;
-    height:55px;
+    height: 55px;
 }
 
 .h-nav li {
@@ -290,8 +259,7 @@ a {
     color: #787b83;
 }
 
-.h-nav li.active a,
-.h-nav li:hover a {
+.h-nav li.active a, .h-nav li:hover a {
     color: #ea6f6e;
     border-bottom: 5px solid #ea6f6e;
 }
@@ -474,8 +442,7 @@ a {
     border: 2px solid #be4e48;
 }
 
-.c-select:hover ul,
-.c-select.current ul {
+.c-select:hover ul, .c-select.current ul {
     display: block;
 }
 
@@ -506,14 +473,12 @@ a {
     cursor: pointer;
 }
 
-.c-select li.active,
-.c-select li:hover {
+.c-select li.active, .c-select li:hover {
     background-color: #be4e48;
     color: #fff;
 }
 
-.c-select li.active:after,
-.c-select li:hover:after {
+.c-select li.active:after, .c-select li:hover:after {
     content: "√";
     position: absolute;
     left: 8px;
@@ -884,7 +849,7 @@ a {
     color: #333;
     font-size: 14px;
     font-weight: bold;
-    font-family:"simHei";
+    font-family: "simHei";
 }
 
 
@@ -946,8 +911,7 @@ a {
     font-size: 15px;
     font-weight: 600;
     word-spacing: 10px;
-    cursor:pointer;
-
+    cursor: pointer;
 }
 
 .share {

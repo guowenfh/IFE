@@ -11,17 +11,14 @@ body {
     min-width: 560px;
 }
 
-ul,
-li {
+ul, li {
     list-style: none;
 }
 
 
 /*标题*/
 
-.title h2,
-.title h3,
-.title h4 {
+.title h2, .title h3, .title h4 {
     margin-bottom: 15px;
 }
 
