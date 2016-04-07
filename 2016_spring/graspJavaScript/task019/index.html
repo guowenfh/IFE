@@ -13,30 +13,42 @@
         box-sizing: border-box;
     }
 
-    ul {
+    div {
+        margin: 10px;
+    }
+
+    #list {
         padding: 0;
+        display: table-cell;
+        vertical-align: bottom;
+        height: 500px;
+        border: 1px solid #333;
+        width: 700px;
+        overflow: hidden;
+        white-space:nowrap;
     }
 
     #list li {
-        list-style: none;
-        padding: 10px;
-        margin: 5px;
-        border: 1px solid #789;
         display: inline-block;
+        list-style: none;
+        width: 2%;
+        margin: 1px;
+        border: 1px solid #789;
     }
     </style>
 </head>
 
 <body>
     <div>
-        <input type="text" id="input" value="742">
+        <input type="text" id="input" value="42">
         <button>左侧入</button>
         <button>右侧入</button>
         <button>左侧出</button>
         <button>右侧出</button>
+        <button>随机生成数据</button>
+        <button>冒泡排序</button>
     </div>
     <ul id="list">
-        <!-- <li>124</li> -->
     </ul>
     <script src="task.js"></script>
 </body>

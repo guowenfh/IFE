@@ -31,6 +31,16 @@ function trim(str) {
     result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换
     return result;
 }
+/**
+ * 生成哈希类型的颜色字符串
+ * @return {String} 颜色码
+ */
+function randomColor() {
+    var color = '#' + ('000000' + Math.floor(Math.random() * 16777215).toString(16)).slice(-6);
+    return color;
+}
+
+
 
 (function() {
     function init() {
@@ -40,11 +50,14 @@ function trim(str) {
         var riIn = btnArr[1];
         var leOut = btnArr[2];
         var riOut = btnArr[3];
-
+        var randomEle = btnArr[4];
+        var bubble = btnArr[5];
         addEvent(leIn, "click", leftIn);
         addEvent(riIn, "click", rightIn);
         addEvent(leOut, "click", leftOut);
         addEvent(riOut, "click", rightOut);
+        addEvent(randomEle, "click", rElement);
+        addEvent(bubble, "click", oBubble);
     }
     var inp = document.getElementById("input");
     var list = document.getElementById("list");
@@ -57,27 +70,90 @@ function trim(str) {
      *
      */
 
+    function oBubble() {
+        var childArr = list.querySelectorAll("li");
+        var childArrHit = [];
+        (function() {
+            for (var i = 0, len = childArr.length; i < len; i++) {
+                childArrHit.push(childArr[i].offsetHeight);
+            }
+        })();
+        (function() {
+            var temp;
+            var arr = [];
+            var timer = null;
+
+            for (var i = 0, len = childArrHit.length; i < len; i++) {
+                for (var j = 0; j < len + 1; j++) {
+                    (function(j) {
+                        setTimeout(function() {
+                            if (childArrHit[j] > childArrHit[j + 1]) {
+                                temp = childArrHit[j];
+                                childArrHit[j] = childArrHit[j + 1];
+                                childArrHit[j + 1] = temp;
+                                childArr[j].style.height = childArrHit[j + 1] + "px";
+                                childArr[j + 1].style.height = temp + "px";
+                            }
+                            arr.push(childArrHit[j], childArrHit[j + 1]);
+                        }, 1000);
+                    })(j);
+                }
+                // arr.push(temp);
+                // childArr[i].style.height = temp + "px";
+            }
+            console.log(arr);
+            console.log(childArrHit);
+
+            // for (var o = 0; o < arr.length; o++) {
+            // var jj = 0;
+            //     for (var k =arr.length ; k > 1 ; k--) {
+            //         childArr[jj].style.height = arr[k] + "px";
+            //         childArr[jj+1].style.height = arr[k] + "px";
+            //         jj++;
+            //         if(jj>=childArr.length){
+            //             jj=0;
+            //         }
+            //     }
+            // }
+
+        })();
+
+    }
+
+    function rElement() {
+        var str = "";
+        var num = null;
+        for (var i = 0; i < 40; i++) {
+            num = Math.round(Math.random() * 499 + 1);
+            str += "<li style ='background:" + randomColor() + ";height:" + num + "px;'></li>";
+        }
+        list.innerHTML = str;
+    }
+
     function leftIn() {
-        var value = parseFloat(trim(inp.value));
-        var fiChild = list.querySelectorAll("li")[0];
-        var fistEle = document.createElement("li");
-        if (!!value) {
-            fistEle.innerHTML = value;
+        var value = parseInt(trim(inp.value));
+        var fiChild = list.firstElementChild;
+        var firstEle = document.createElement("li");
+        if (value <= 500 && value > 0) {
+            firstEle.style.height = value + "px";
+            firstEle.style.background = randomColor();
+
             if (fiChild) {
-                list.insertBefore(fistEle, fiChild);
+                list.insertBefore(firstEle, fiChild);
             } else {
-                list.appendChild(fistEle);
+                list.appendChild(firstEle);
             }
         } else {
-            alert("请输入一个数字");
+            alert("请输入一个数字并且在0-500之间");
         }
     }
 
     function rightIn() {
-        var value = parseFloat(trim(inp.value));
+        var value = parseInt(trim(inp.value));
         var lastEle = document.createElement("li");
-        if (!!value) {
-            lastEle.innerHTML = value;
+        if (value <= 500 && value > 0) {
+            lastEle.style.height = value + "px";
+            lastEle.style.background = randomColor();
             list.appendChild(lastEle);
         } else {
             alert("请输入一个数字");
