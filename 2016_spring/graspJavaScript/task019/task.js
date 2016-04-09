@@ -94,28 +94,10 @@ function randomColor() {
                                 childArr[j].style.height = childArrHit[j + 1] + "px";
                                 childArr[j + 1].style.height = temp + "px";
                             }
-                            arr.push(childArrHit[j], childArrHit[j + 1]);
                         }, 1000);
                     })(j);
                 }
-                // arr.push(temp);
-                // childArr[i].style.height = temp + "px";
             }
-            console.log(arr);
-            console.log(childArrHit);
-
-            // for (var o = 0; o < arr.length; o++) {
-            // var jj = 0;
-            //     for (var k =arr.length ; k > 1 ; k--) {
-            //         childArr[jj].style.height = arr[k] + "px";
-            //         childArr[jj+1].style.height = arr[k] + "px";
-            //         jj++;
-            //         if(jj>=childArr.length){
-            //             jj=0;
-            //         }
-            //     }
-            // }
-
         })();
 
     }
@@ -133,16 +115,21 @@ function randomColor() {
     function leftIn() {
         var value = parseInt(trim(inp.value));
         var fiChild = list.firstElementChild;
+        var len = list.querySelectorAll("li").length;
         var firstEle = document.createElement("li");
         if (value <= 500 && value > 0) {
-            firstEle.style.height = value + "px";
-            firstEle.style.background = randomColor();
-
-            if (fiChild) {
-                list.insertBefore(firstEle, fiChild);
+            if (len > 60) {
+                alert("元素最多为60个");
             } else {
-                list.appendChild(firstEle);
+                firstEle.style.height = value + "px";
+                firstEle.style.background = randomColor();
+                if (fiChild) {
+                    list.insertBefore(firstEle, fiChild);
+                } else {
+                    list.appendChild(firstEle);
+                }
             }
+
         } else {
             alert("请输入一个数字并且在0-500之间");
         }
@@ -151,10 +138,16 @@ function randomColor() {
     function rightIn() {
         var value = parseInt(trim(inp.value));
         var lastEle = document.createElement("li");
+        var len = list.querySelectorAll("li").length;
+
         if (value <= 500 && value > 0) {
-            lastEle.style.height = value + "px";
-            lastEle.style.background = randomColor();
-            list.appendChild(lastEle);
+            if (len > 60) {
+                alert("元素最多为60个");
+            } else {
+                lastEle.style.height = value + "px";
+                lastEle.style.background = randomColor();
+                list.appendChild(lastEle);
+            }
         } else {
             alert("请输入一个数字");
         }
@@ -163,7 +156,7 @@ function randomColor() {
     function leftOut() {
         var fiChild = list.querySelectorAll("li")[0];
         if (fiChild) {
-            if (confirm("第一个元素的值为：" + fiChild.innerText + "，你确定要删除吗？")) {
+            if (confirm("第一个元素的值为：" + fiChild.offsetHeight + "，你确定要删除吗？")) {
                 list.removeChild(fiChild);
             }
         } else {
@@ -175,7 +168,7 @@ function randomColor() {
         var Child = list.querySelectorAll("li");
         var latChild = Child[Child.length - 1];
         if (latChild) {
-            if (confirm("最后一个元素的值为：" + latChild.innerText + "，你确定要删除吗？")) {
+            if (confirm("最后一个元素的值为：" + latChild.offsetHeight + "，你确定要删除吗？")) {
                 list.removeChild(latChild);
             }
         } else {
