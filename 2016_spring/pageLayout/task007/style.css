@@ -30,8 +30,6 @@ input, select, textarea, button {
     outline: none;
     /*聚焦时样式*/
     border: none;
-    /*去除input的边框，自行设置*/
-    box-sizing: border-box;
     /*盒子模型*/
     vertical-align: middle;
     /*对不齐的问题*/
@@ -40,9 +38,6 @@ input, select, textarea, button {
 textarea {
     resize: none;
 }
-
-
-/* 取消可拖动放大 */
 
 a {
     text-decoration: none;
@@ -60,8 +55,6 @@ a {
 
 
 /* icon图标类。 需要使用的时候直接引入就好。*/
-
-
 /*稍微有点偷懒，切的不是完全的对应。。。*/
 
 .icon-img {
@@ -850,6 +843,7 @@ a {
     font-size: 14px;
     font-weight: bold;
     font-family: "simHei";
+    cursor: pointer;
 }
 
 
@@ -954,3 +948,7 @@ a {
 
 
 /* 页面完结 */
+
+
+
+

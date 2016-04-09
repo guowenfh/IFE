@@ -33,8 +33,11 @@ function trim(str) {
 }
 
 (function() {
+    var inp = document.getElementById("input");
+    var list = document.getElementById("list");
+    var searchInp = document.getElementById("search-inp");
+    var searchBtn = document.getElementById("search-btn");
     function init() {
-        var inp = document.getElementById("input");
         var btnArr = document.querySelectorAll("button");
         var leIn = btnArr[0];
         var riIn = btnArr[1];
@@ -46,8 +49,6 @@ function trim(str) {
         addEvent(leOut, "click", leftOut);
         addEvent(riOut, "click", rightOut);
     }
-    var inp = document.getElementById("input");
-    var list = document.getElementById("list");
     init();
 
     /**
@@ -58,10 +59,15 @@ function trim(str) {
      */
 
     function leftIn() {
-        var value = parseFloat(trim(inp.value));
-        var fiChild = list.querySelectorAll("li")[0];
-        var fistEle = document.createElement("li");
+        var value = trim(inp.value);
+        var fiChild  = null;
+        var fistEle = null;
+        // console.log(value.split(/\s+|[;；、,.，。]+/i));
+        console.log(value.split(/[^\w\u4e00-\u9fa5]+/));
         if (!!value) {
+            var value =
+            fiChild = list.querySelectorAll("li")[0];
+            fistEle = document.createElement("li");
             fistEle.innerHTML = value;
             if (fiChild) {
                 list.insertBefore(fistEle, fiChild);
@@ -69,7 +75,7 @@ function trim(str) {
                 list.appendChild(fistEle);
             }
         } else {
-            alert("请输入一个数字");
+            alert("请输入内容");
         }
     }
 

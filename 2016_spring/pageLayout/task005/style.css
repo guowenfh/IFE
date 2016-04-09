@@ -102,13 +102,13 @@ a {
 
 /*顶部结束*/
 
-
-/*页面主体内容开始*/
-.two-column {
+/* 整体宽度控制 */
+.wrap {
     width: 98%;
     margin: 0 auto;
 }
 
+/*页面主体内容开始*/
 .main,
 .sidebar {
     padding-top: 20px;
@@ -363,3 +363,4 @@ footer {
 
 
 /*页脚结束*/
+

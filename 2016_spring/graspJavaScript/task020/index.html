@@ -12,7 +12,6 @@
     * {
         box-sizing: border-box;
     }
-
     ul {
         padding: 0;
     }
@@ -24,22 +23,23 @@
         border: 1px solid #789;
         display: inline-block;
     }
+
     </style>
 </head>
 
 <body>
     <div>
-        <input type="text" id="input" value="742">
+        <textarea placeholder="输入数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格进行分割" id="input" cols="50" rows="4"></textarea>
         <button>左侧入</button>
         <button>右侧入</button>
         <button>左侧出</button>
         <button>右侧出</button>
+        <input id="search-inp" placeholder="输入查询的字符">
+        <input id="search-btn" value="查找" type="button">
     </div>
     <ul id="list">
-         <li>124</li> 
-         <li>测试1</li>
-         <li>测试2</li>
-         <li>测试3</li>
+        <li>124</li>
+        <li>测试3</li>
     </ul>
     <script src="task.js"></script>
 </body>
