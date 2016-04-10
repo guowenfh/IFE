@@ -20,7 +20,7 @@ function winLoad() {
                 setTimeout(clickStart, 1000); //使用回调函数的方式，进行定时执行。
                 if (date <= 0) { //到达目标
                     clearTimeout(clickStart);
-                    show.innerHTML = "时间已经到了，你完成了目标吗？"
+                    show.innerHTML = "时间已经到了，你完成了目标吗？";
                 }
             } else {
                 show.innerHTML = "输入有误,请按指定格式输入";
@@ -31,4 +31,4 @@ function winLoad() {
         }); //点击执行
     }
     start();
-};
+}

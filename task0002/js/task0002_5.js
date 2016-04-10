@@ -34,7 +34,7 @@ function winLoad() {
                 top: eleArr[i].offsetTop
             };
         }
-        for (var i = 0, len = eleArr.length; i < len; i++) {
+        for (i = 0, len = eleArr.length; i < len; i++) {
             eleArr[i].style.left = aPos[i].left + "px";
             eleArr[i].style.top = aPos[i].top + "px";
             eleArr[i].style.position = "absolute";
@@ -45,7 +45,7 @@ function winLoad() {
 
 
     //事件代理
-    delegateEvent(dragBlock, "li", "mousedown", function (ev) {
+    delegateEvent(dragBlock, "li", "mousedown", function(ev) {
         var oEvent = ev || event;
         var disX = oEvent.clientX - this.offsetLeft; //鼠标在容器中的位置
         var disY = oEvent.clientY - this.offsetTop;
@@ -77,14 +77,13 @@ function winLoad() {
          */
         function onmousemove(ev) {
             var oEvent = ev || event;
-
             var dragL = oEvent.clientX - disX;
             var dragT = oEvent.clientY - disY;
 
             //边界限制
             var winWidth = document.body.clientWidth || document.documentElement.clientWidth;
             var winHeight = document.body.clientHeight || document.documentElement.clientHeight;
-            console.log(winWidth + "," + winHeight)
+            // console.log(winWidth + "," + winHeight)
             if (dragL < -40) {
                 dragL = -40;
             } else if (dragL >= (winWidth - that.offsetWidth)) {
@@ -168,62 +167,54 @@ function winLoad() {
                     appChild(that, leftUl);
 
                 }
-                /**
-                 * 插入对方父容器函数
-                 * @param {object} obj    待插入节点
-                 * @param {object} parent 对方父节点
-                 */
-                function appChild(obj, parent) {
-                    //碰撞对面父级元素的情况
-                    if (hitDetection(obj, parent)) {
-                        var oLi = parent.getElementsByTagName("li");
-                        var len = oLi.length;
-                        parent.appendChild(obj);
-                        //新父元素内没有li的情况
-                        if (len) {
-                            obj.style.left = oLi[0].style.left;
-                            obj.style.top = oLi[len - 1].offsetTop + oLi[0].offsetHeight + "px";
-                        } else {
-                            obj.style.left = parent.offsetLeft + 1 + "px";
-                            obj.style.top = parent.offsetTop + 1 + "px";
-                        }
 
-                        //处理原位置。
-                        var thatLi = createActivePar.getElementsByTagName("li");
-                        for (var j = 0, thatLen = thatLi.length; j < thatLen; j++) {
-                            if (j === 0) {
-                                thatLi[0].style.left = createActivePar.offsetLeft + 1 + "px";
-                                thatLi[0].style.top = createActivePar.offsetTop + 1 + "px";
-                            } else {
-                                thatLi[j].style.left = thatLi[j - 1].style.left;
-                                thatLi[j].style.top = that.offsetHeight + thatLi[j - 1].offsetTop + "px";
-                            }
-
-                        }
-                    } else
-                    //未碰撞到时返回原位置
-                        startMove(that, {
-                        left: originalLeft,
-                        top: originalTop
-                    }, function () {
-                        that.style.left = originalLeft + "px";
-                        that.style.top = originalTop + "px";
-                    });
-
-                }
             }
             createActive.parentNode.removeChild(createActive);
             that.style.opacity = "1";
         }
+        /**
+         * 插入对方父容器函数
+         * @param {object} obj    待插入节点
+         * @param {object} parent 对方父节点
+         */
+        function appChild(obj, parent) {
+            //碰撞对面父级元素的情况
+            if (hitDetection(obj, parent)) {
+                var oLi = parent.getElementsByTagName("li");
+                var len = oLi.length;
+                parent.appendChild(obj);
+                //新父元素内没有li的情况
+                if (len) {
+                    obj.style.left = oLi[0].style.left;
+                    obj.style.top = oLi[len - 1].offsetTop + oLi[0].offsetHeight + "px";
+                } else {
+                    obj.style.left = parent.offsetLeft + 1 + "px";
+                    obj.style.top = parent.offsetTop + 1 + "px";
+                }
 
+                //处理原位置。
+                var thatLi = createActivePar.getElementsByTagName("li");
+                for (var j = 0, thatLen = thatLi.length; j < thatLen; j++) {
+                    if (j === 0) {
+                        thatLi[0].style.left = createActivePar.offsetLeft + 1 + "px";
+                        thatLi[0].style.top = createActivePar.offsetTop + 1 + "px";
+                    } else {
+                        thatLi[j].style.left = thatLi[j - 1].style.left;
+                        thatLi[j].style.top = that.offsetHeight + thatLi[j - 1].offsetTop + "px";
+                    }
 
-
+                }
+            } else {
+                //未碰撞到时返回原位置
+                startMove(obj, { left: originalLeft, top: originalTop }, function() {
+                    obj.style.left = originalLeft + "px";
+                    obj.style.top = originalTop + "px";
+                });
+            }
+        }
         clearInterval(that.timer); //处理在未碰撞到时，回到原位置途中再次拖拽的问题。不然会闪屏
 
     });
-
-
-
 
     /**
      * 碰撞检测函数

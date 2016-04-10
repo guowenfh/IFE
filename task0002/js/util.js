@@ -1,19 +1,19 @@
 // 判断arr是否为一个数组，返回一个bool值
 function isArray(arr) {
-    return typeof (arr) === "object" && Object.prototype.toString.call(arr) === "[object Array]";
+    return typeof(arr) === "object" && Object.prototype.toString.call(arr) === "[object Array]";
 }
 
 
 // 判断fn是否为一个函数，返回一个bool值
 function isFunction(fn) {
-    return typeof (fn) === "function";
+    return typeof(fn) === "function";
 }
 
 // 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝
 // 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、Object对象。不会包含函数、正则对象等
 function cloneObject(src) {
     var result; //返回的复制后的结果。
-    if (typeof (src) === "object") {
+    if (typeof(src) === "object") {
         //对象为日期对象时也直接赋值。
         if (Object.prototype.toString.call(src) === "[object Date]") {
             result = src;
@@ -167,47 +167,47 @@ function VQuery(selector, root) {
     var allChildren = null; //用来保存获取到的临时节点数组
     root = root || document; //若没有给root，赋值document
     switch (selector.charAt(0)) {
-    case "#": //id选择器
-        elements.push(root.getElementById(selector.substring(1)));
-        break;
-    case ".": //class选择器
-        if (root.getElementsByClassName) { //标准
-            elements = root.getElementsByClassName(selector.substring(1));
-        } else { //兼容低版本浏览器
-            var reg = new RegExp("\\b" + selector.substring(1) + "\\b");
-            allChildren = root.getElementsByTagName("*");
-            for (var i = 0, len = allChildren.length; i < len; i++) {
-                if (reg.test(allChildren[i].className)) {
-                    elements.push(allChildren[i]);
+        case "#": //id选择器
+            elements.push(root.getElementById(selector.substring(1)));
+            break;
+        case ".": //class选择器
+            if (root.getElementsByClassName) { //标准
+                elements = root.getElementsByClassName(selector.substring(1));
+            } else { //兼容低版本浏览器
+                var reg = new RegExp("\\b" + selector.substring(1) + "\\b");
+                allChildren = root.getElementsByTagName("*");
+                for (var i = 0, len = allChildren.length; i < len; i++) {
+                    if (reg.test(allChildren[i].className)) {
+                        elements.push(allChildren[i]);
+                    }
                 }
             }
-        }
-        break;
-    case "[": //属性选择器
+            break;
+        case "[": //属性选择器
 
-        if (selector.indexOf("=") === -1) {
-            //只有属性没有值的情况
-            allChildren = root.getElementsByTagName("*");
-            for (var i = 0, len = allChildren.length; i < len; i++) {
-                if (allChildren[i].getAttribute(selector.slice(1, -1)) !== null) {
-                    elements.push(allChildren[i]);
+            if (selector.indexOf("=") === -1) {
+                //只有属性没有值的情况
+                allChildren = root.getElementsByTagName("*");
+                for (var i = 0, len = allChildren.length; i < len; i++) {
+                    if (allChildren[i].getAttribute(selector.slice(1, -1)) !== null) {
+                        elements.push(allChildren[i]);
+                    }
+                }
+            } else {
+                //既有属性又有值的情况
+                var index = selector.indexOf("="); //缓存=出现的索引位置。
+                allChildren = root.getElementsByTagName("*");
+                for (var i = 0, len = allChildren.length; i < len; i++) {
+                    if (allChildren[i].getAttribute(selector.slice(1, index)) === selector.slice(index + 1, -1)) {
+                        elements.push(allChildren[i]);
+                    }
                 }
             }
-        } else {
-            //既有属性又有值的情况
-            var index = selector.indexOf("="); //缓存=出现的索引位置。
-            allChildren = root.getElementsByTagName("*");
-            for (var i = 0, len = allChildren.length; i < len; i++) {
-                if (allChildren[i].getAttribute(selector.slice(1, index)) === selector.slice(index + 1, -1)) {
-                    elements.push(allChildren[i]);
-                }
-            }
-        }
-        break;
-    default: //tagName
-        elements = root.getElementsByTagName(selector);
+            break;
+        default: //tagName
+            elements = root.getElementsByTagName(selector);
     }
-    return elements
+    return elements;
 }
 /**
  * 模仿jQuery的迷你$选择符。
@@ -270,7 +270,7 @@ function addClickEvent(element, listener) {
 // 实现对于按Enter键时的事件绑定
 function addEnterEvent(element, listener) {
     // your implement
-    addEvent(element, "keydown", function (ev) {
+    addEvent(element, "keydown", function(ev) {
         //兼容性处理。
         var oEvent = ev || window.event;
         if (oEvent.keyCode === 13) {
@@ -289,30 +289,30 @@ function addEnterEvent(element, listener) {
  */
 function delegateEvent(element, tag, eventName, listener) {
     // your implement
-    return addEvent(element, eventName, function (ev) {
+    return addEvent(element, eventName, function(ev) {
         var oEvent = ev || event; //兼容处理
         var target = oEvent.target || oEvent.srcElement; //兼容处理
         if (target.tagName.toLocaleLowerCase() === tag) {
             listener.call(target, oEvent); //使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）
         }
-    })
+    });
 }
 
 
 //把上面几个函数和$做一下结合，把他们变成$对象的一些方法
-$.on = function (selector, event, listener) {
+$.on = function(selector, event, listener) {
     return addEvent($(selector), event, listener);
 };
-$.un = function (selector, event, listener) {
+$.un = function(selector, event, listener) {
     return removeEvent($(selector), event, listener);
 };
-$.click = function (selector, listener) {
+$.click = function(selector, listener) {
     return addClickEvent($(selector), listener);
-}
-$.enter = function (selector, listener) {
+};
+$.enter = function(selector, listener) {
     return addEnterEvent($(selector), listener);
 };
-$.delegate = function (selector, tag, eventName, listener) {
+$.delegate = function(selector, tag, eventName, listener) {
     return delegateEvent($(selector), tag, eventName, listener);
 };
 
@@ -363,7 +363,7 @@ function getCookie(cookieName) {
  * @param {String} cookieName 待删除的cookie名
  */
 function removeCookie(cookieName) {
-    setCookie(cookieName, "1", -1)
+    setCookie(cookieName, "1", -1);
 }
 
 
@@ -397,7 +397,7 @@ function ajax(url, options) {
     var param = ""; //请求参数。
     //只有data存在，且为对象使才执行
     var data = options.data ? options.data : -1; //缓存data
-    if (typeof (data) === "object") {
+    if (typeof(data) === "object") {
         for (var key in data) { //请求参数拼接
             if (data.hasOwnProperty(key)) {
                 param += key + "=" + data[key] + "&";
@@ -421,7 +421,7 @@ function ajax(url, options) {
 
     //4.接收返回
     //OnRedayStateChange事件
-    oAjax.onreadystatechange = function () {
+    oAjax.onreadystatechange = function() {
         if (oAjax.readyState === 4) {
             if (oAjax.status === 200) {
                 //请求成功。形参为获取到的字符串形式的响应数据
@@ -480,7 +480,7 @@ function getStyle(element, attr) {
 function startMove(element, json, func) {
     clearInterval(element.timer);
     var flag = true; //假设所有运动到达终点.
-    element.timer = setInterval(function () {
+    element.timer = setInterval(function() {
         for (var attr in json) {
             //1.取当前的属性值。
             var iCurrent = 0;
