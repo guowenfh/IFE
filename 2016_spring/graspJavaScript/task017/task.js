@@ -81,8 +81,17 @@ function renderChart() {
     chartWrap.innerHTML = ""; //不这样写就一直叠加了
 
     for (var i in chartData[timeFormat[0]]) {
-        chartWrap.innerHTML += "<div title='" + i + "\nvalue: " + chartData[timeFormat[0]][i] + "'style='height:" + chartData[timeFormat[0]][i] + "px;width:" + timeFormat[1] + ";background:" + randomColor() + ";'></div>";
+        chartWrap.innerHTML += "<div title='" + i + "\nvalue: " + chartData[timeFormat[0]][i] + "'style='width:" + timeFormat[1] + ";background:" + randomColor() + ";'></div>";
     }
+    setTimeout(function(){
+        var chartArr = chartWrap.querySelectorAll("div");
+        var j = 0;
+        for(var i in chartData[timeFormat[0]]){
+            chartArr[j].style.transition="";
+            chartArr[j].style.height=chartData[timeFormat[0]][i]+"px";
+            j++;
+        }
+    },500);
 }
 /**
  * 日、周、月的radio事件点击时的处理函数
