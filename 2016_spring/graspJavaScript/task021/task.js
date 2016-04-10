@@ -1,162 +1,104 @@
-/**
- * 事件添加函数
- * @param { Element  } ele     触发事件的Dom对象
- * @param { String   } event   触发的事件类型
- * @param { Fucntion } func    事件触发执行的函数
- */
-var addEvent = (function() {
-    if (document.addEventListener) {
-        return function(ele, event, func) {
-            ele.addEventListener(event, func, false);
-        };
-    } else if (document.attachEvent) {
-        return function(ele, event, func) {
-            ele.attachEvent("on" + event, func);
-        };
-    } else {
-        return function(ele, event, func) {
-            ele["on" + event] = func;
-        };
-    }
-})();
-
-/**
- * 字符串去首尾空格
- * @param  {String} str     待处理字符串
- * @return {String}         处理后的字符串
- */
-function trim(str) {
-    // your implement
-    var result = "";
-    result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换
-    return result;
-}
-
 (function() {
-    var inp = document.getElementById("input"),
-        list = document.getElementById("list"),
-        searchInp = document.getElementById("search-inp");
+    var arr = [];
+
+    function tagInpFun(value, obj) {
+        if (value !== "" && arr.indexOf(value) === -1) {
+            if (arr.length < 10) {
+                arr.push(value);
+            } else {
+                arr.pop();
+                arr.unshift(value);
+            }
+        }
+        arrToHtml(obj, arr);
+    }
+    var interest = [];
+
+    function interestInpFun(value, obj) {
+        //将输入分割成数组，并且进行去重操作
+        var vArr = uniqArray(value.split(/\n|\s+|\,|\，|\、|\;|\；/));
+        if ((interest.length + vArr.length) > 0 && (interest.length + vArr.length) < 10) {
+            interest = vArr;
+        } else {
+            interest = interest.concat(vArr);
+            interest = uniqArray(interest);
+            if (interest.length > 10) {
+                interest = interest.slice(-10);
+            }
+        }
+        arrToHtml(obj, interest);
+
+    }
+    /**
+     * html渲染函数
+     * @param  {HTMLElement} obj 用于渲染的容器
+     * @param  {Arrary} arr 用于设置的内容
+     */
+    function arrToHtml(obj, arr) {
+        obj.innerHTML = "";
+        if (arr.length !== 0) {
+            arr.forEach(function(ele, index, arr) {
+                if (index < 10) {
+                    obj.innerHTML += "<li>" + ele + "</li>";
+                }
+            });
+        }
+    }
+    /**
+     * 设置hover效果，删除数组项并且重新渲染html
+     * @param  {HTMLElement} obj [用来事件代理的html元素]
+     * @param  {Arrary} arr [用于渲染html的数组]
+     */
+    function romoveList(obj, arr) {
+        addEvent(obj, "mouseover", function(ev) {
+            var target = null;
+            if (ev.target.nodeName.toLowerCase() === "li") {
+                target = ev.target;
+                target.innerHTML = "点击删除" + target.innerText;
+                target.style.backgroundColor = "#DF4210";
+            }
+        });
+        addEvent(obj, "mouseout", function(ev) {
+            var target = null;
+            if (ev.target.nodeName.toLowerCase() === "li") {
+                target = ev.target;
+                var asd = target.innerText;
+                target.innerHTML = "";
+                target.innerHTML = asd.substr(4);
+                target.style.backgroundColor = "#4893E3";
+            }
+        });
+        if (arr) {
+            addEvent(obj, "mousedown", function(ev) {
+                if (ev.target.nodeName.toLowerCase() === "li") {
+                    target = ev.target;
+                    arr.splice(arr.indexOf(target.innerText.substr(4)), 1);
+                    target.innerHTML = "";
+                    arrToHtml(this, arr);
+                }
+            });
+        }
+
+    }
 
     function init() {
-        var btnArr = document.querySelectorAll("button"),
-            leIn = btnArr[0],
-            riIn = btnArr[1],
-            leOut = btnArr[2],
-            riOut = btnArr[3],
-            searchBtn = document.getElementById("search-btn");
+        var tagInp = document.getElementById("tag-inp"),
+            interestInp = document.getElementById("interest-inp"),
+            interestBtn = document.getElementById("interest-btn"),
+            tagList = document.getElementById("tag-list"),
+            interestList = document.getElementById("interest-list");
 
-
-        addEvent(leIn, "click", leftIn);
-        addEvent(riIn, "click", rightIn);
-        addEvent(leOut, "click", leftOut);
-        addEvent(riOut, "click", rightOut);
-        addEvent(searchBtn, "click", searchFun);
+        addEvent(tagInp, "keydown", function(ev) {
+            if (ev.keyCode === 13 || ev.keyCode === 186 || ev.keyCode === 188 || ev.keyCode === 32) {
+                tagInpFun(trim(tagInp.value), tagList);
+                this.value = "";
+            }
+        });
+        romoveList(tagList, arr);
+        addEvent(interestBtn, "click", function() {
+            interestInpFun(trim(interestInp.value), interestList);
+            romoveList(interestList);
+        });
     }
     init();
-
-    /**
-     * 这里不在乎兼容性的话直接使用firstElementChild以及lastElementChild。
-     * 非要使用获取子元素的方法的话，使用firstChild..等再判断节点类型为元素节点再进行添加删除等等。。（有些浏览器会把空白和文本节点算到里面，所以要判断）
-     * 我为了偷懒就直接使用获取里面的li了。。
-     *
-     */
-    function searchFun() {
-        var sValue = trim(searchInp.value),
-            reg = new RegExp(sValue+"+", "i"),
-            listArr = list.querySelectorAll("li"),
-            sValueMatch = null;
-        if (sValue !== "" && listArr.length !== 0) {
-            for (var i = 0, len = listArr.length; i < len; i++) {
-                sValueMatch = listArr[i].innerText.match(reg);
-                if (sValueMatch) {
-                console.log(sValueMatch);
-                    if (sValueMatch.index === 0) {
-                        listArr[i].innerHTML = "<span class='red'>" + sValueMatch[0] + "</span>" + sValueMatch.input.substr(sValueMatch[0].length);
-                    } else {
-                        console.log(sValueMatch[0]);
-                        console.log(sValueMatch.input.substr(sValueMatch.index+sValueMatch[0].length));
-                        listArr[i].innerHTML = sValueMatch.input.substring(0, sValueMatch.index) + "<span class='red'>" + sValueMatch[0] + "</span>" + sValueMatch.input.substr(sValueMatch.index+sValueMatch[0].length);
-                    }
-                    listArr[i].style.background = "#C9E8FF";
-                } else {
-                    listArr[i].innerHTML = listArr[i].innerText;
-                    listArr[i].style.background = "#fff";
-                }
-            }
-        } else {
-            alert("当前列表中无值或者您未输入值");
-        }
-    }
-    /*
-        左侧入
-     */
-    function leftIn() {
-        var value = trim(inp.value),
-            fiChild = null,
-            fistEle = null;
-        if (!!value) {
-            value = value.split(/[^\w\u4e00-\u9fa5]+/);
-            for (var i = 0, len = value.length; i < len; i++) {
-                fiChild = list.firstElementChild;
-                if (value[i] !== "") {
-                    fistEle = document.createElement("li");
-                    fistEle.innerHTML = value[i];
-                    if (fiChild) {
-                        list.insertBefore(fistEle, fiChild);
-                    } else {
-                        list.appendChild(fistEle);
-                    }
-                }
-            }
-        } else {
-            alert("请输入内容");
-        }
-    }
-    /*
-        右侧入
-    */
-    function rightIn() {
-        var value = trim(inp.value),
-            lastEle = document.createElement("li");
-        if (!!value) {
-            value = value.split(/[^\w\u4e00-\u9fa5]+/);
-            for (var i = 0, len = value.length; i < len; i++) {
-                if (value[i] !== "") {
-                    lastEle = document.createElement("li");
-                    lastEle.innerHTML = value[i];
-                    list.appendChild(lastEle);
-                }
-            }
-        } else {
-            alert("请输入内容");
-        }
-    }
-    /*
-        左侧出
-    */
-    function leftOut() {
-        var fiChild = list.querySelectorAll("li")[0];
-        if (fiChild) {
-            if (confirm("第一个元素的值为：" + fiChild.innerText + "，你确定要删除吗？")) {
-                list.removeChild(fiChild);
-            }
-        } else {
-            alert("队列是空的");
-        }
-    }
-    /*
-    右侧出
-     */
-    function rightOut() {
-        var Child = list.querySelectorAll("li");
-        var latChild = Child[Child.length - 1];
-        if (latChild) {
-            if (confirm("最后一个元素的值为：" + latChild.innerText + "，你确定要删除吗？")) {
-                list.removeChild(latChild);
-            }
-        } else {
-            alert("队列是空的");
-        }
-    }
-
 })();

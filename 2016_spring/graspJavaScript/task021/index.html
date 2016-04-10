@@ -14,32 +14,39 @@
     }
     ul {
         padding: 0;
-    }
-
-    #list li {
         list-style: none;
-        padding: 10px;
-        margin: 5px;
-        border: 1px solid #789;
-        display: inline-block;
     }
-    .red{
-        color: red;
+    ul li{
+        display:inline-block;
+        margin: 5px;
+        color: #fff;
+        padding:10px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #tag-list li{
+        background-color: #4893E3;
+
+    }
+    #interest-list li{
+        background-color: #EDC582;
     }
     </style>
+    <script src="../kit.js"></script>
 </head>
 
 <body>
     <div>
-        <textarea placeholder="输入数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格进行分割" id="input" cols="50" rows="4"></textarea>
-        <button>左侧入</button>
-        <button>右侧入</button>
-        <button>左侧出</button>
-        <button>右侧出</button>
-        <input id="search-inp" placeholder="输入查询的字符">
-        <input id="search-btn" value="查找" type="button">
+        Tag：<input type="text" id="tag-inp">
     </div>
-    <ul id="list">
+    <ul id="tag-list">
+    </ul>
+    <div>
+        <textarea placeholder="输入数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格进行分割" id="interest-inp" cols="50" rows="4"></textarea>
+        <button id="interest-btn">确定兴趣爱好</button>
+    </div>
+    <ul id="interest-list">
     </ul>
     <script src="task.js"></script>
 </body>
