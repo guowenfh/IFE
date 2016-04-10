@@ -33,21 +33,24 @@ function trim(str) {
 }
 
 (function() {
-    var inp = document.getElementById("input");
-    var list = document.getElementById("list");
-    var searchInp = document.getElementById("search-inp");
-    var searchBtn = document.getElementById("search-btn");
+    var inp = document.getElementById("input"),
+        list = document.getElementById("list"),
+        searchInp = document.getElementById("search-inp");
+
     function init() {
-        var btnArr = document.querySelectorAll("button");
-        var leIn = btnArr[0];
-        var riIn = btnArr[1];
-        var leOut = btnArr[2];
-        var riOut = btnArr[3];
+        var btnArr = document.querySelectorAll("button"),
+            leIn = btnArr[0],
+            riIn = btnArr[1],
+            leOut = btnArr[2],
+            riOut = btnArr[3],
+            searchBtn = document.getElementById("search-btn");
+
 
         addEvent(leIn, "click", leftIn);
         addEvent(riIn, "click", rightIn);
         addEvent(leOut, "click", leftOut);
         addEvent(riOut, "click", rightOut);
+        addEvent(searchBtn, "click", searchFun);
     }
     init();
 
@@ -57,39 +60,80 @@ function trim(str) {
      * 我为了偷懒就直接使用获取里面的li了。。
      *
      */
-
+    function searchFun() {
+        var sValue = trim(searchInp.value),
+            reg = new RegExp(sValue+"+", "i"),
+            listArr = list.querySelectorAll("li"),
+            sValueMatch = null;
+        if (sValue !== "" && listArr.length !== 0) {
+            for (var i = 0, len = listArr.length; i < len; i++) {
+                sValueMatch = listArr[i].innerText.match(reg);
+                if (sValueMatch) {
+                console.log(sValueMatch);
+                    if (sValueMatch.index === 0) {
+                        listArr[i].innerHTML = "<span class='red'>" + sValueMatch[0] + "</span>" + sValueMatch.input.substr(sValueMatch[0].length);
+                    } else {
+                        console.log(sValueMatch[0]);
+                        console.log(sValueMatch.input.substr(sValueMatch.index+sValueMatch[0].length));
+                        listArr[i].innerHTML = sValueMatch.input.substring(0, sValueMatch.index) + "<span class='red'>" + sValueMatch[0] + "</span>" + sValueMatch.input.substr(sValueMatch.index+sValueMatch[0].length);
+                    }
+                    listArr[i].style.background = "#C9E8FF";
+                } else {
+                    listArr[i].innerHTML = listArr[i].innerText;
+                    listArr[i].style.background = "#fff";
+                }
+            }
+        } else {
+            alert("当前列表中无值或者您未输入值");
+        }
+    }
+    /*
+        左侧入
+     */
     function leftIn() {
-        var value = trim(inp.value);
-        var fiChild  = null;
-        var fistEle = null;
-        // console.log(value.split(/\s+|[;；、,.，。]+/i));
-        console.log(value.split(/[^\w\u4e00-\u9fa5]+/));
+        var value = trim(inp.value),
+            fiChild = null,
+            fistEle = null;
         if (!!value) {
-            var value =
-            fiChild = list.querySelectorAll("li")[0];
-            fistEle = document.createElement("li");
-            fistEle.innerHTML = value;
-            if (fiChild) {
-                list.insertBefore(fistEle, fiChild);
-            } else {
-                list.appendChild(fistEle);
+            value = value.split(/[^\w\u4e00-\u9fa5]+/);
+            for (var i = 0, len = value.length; i < len; i++) {
+                fiChild = list.firstElementChild;
+                if (value[i] !== "") {
+                    fistEle = document.createElement("li");
+                    fistEle.innerHTML = value[i];
+                    if (fiChild) {
+                        list.insertBefore(fistEle, fiChild);
+                    } else {
+                        list.appendChild(fistEle);
+                    }
+                }
             }
         } else {
             alert("请输入内容");
         }
     }
-
+    /*
+        右侧入
+    */
     function rightIn() {
-        var value = parseFloat(trim(inp.value));
-        var lastEle = document.createElement("li");
+        var value = trim(inp.value),
+            lastEle = document.createElement("li");
         if (!!value) {
-            lastEle.innerHTML = value;
-            list.appendChild(lastEle);
+            value = value.split(/[^\w\u4e00-\u9fa5]+/);
+            for (var i = 0, len = value.length; i < len; i++) {
+                if (value[i] !== "") {
+                    lastEle = document.createElement("li");
+                    lastEle.innerHTML = value[i];
+                    list.appendChild(lastEle);
+                }
+            }
         } else {
-            alert("请输入一个数字");
+            alert("请输入内容");
         }
     }
-
+    /*
+        左侧出
+    */
     function leftOut() {
         var fiChild = list.querySelectorAll("li")[0];
         if (fiChild) {
@@ -100,7 +144,9 @@ function trim(str) {
             alert("队列是空的");
         }
     }
-
+    /*
+    右侧出
+     */
     function rightOut() {
         var Child = list.querySelectorAll("li");
         var latChild = Child[Child.length - 1];

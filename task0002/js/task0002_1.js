@@ -15,9 +15,9 @@
                 var trimValue = trim(unValue[i]); //对每一项进行去除首尾空格操作
                 console.log(trimValue);
                 if (trimValue !== "") { //只有在去除首尾空格后不为空的数组才输出。
-                    out.innerHTML += "<label>" + "<input type='checkbox'>" + trimValue + "</label>"
+                    out.innerHTML += "<label>" + "<input type='checkbox'>" + trimValue + "</label>";
                 }
             }
         }
-    })
+    });
 })();

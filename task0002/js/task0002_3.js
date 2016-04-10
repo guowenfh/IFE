@@ -168,6 +168,5 @@ function winLoad() {
                 removeClass(oLi[i], "active");
             }
         }
-
     }
 }
