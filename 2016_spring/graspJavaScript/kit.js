@@ -4,7 +4,6 @@
  * @param { String   } event   触发的事件类型
  * @param { Fucntion } func    事件触发执行的函数
  */
-
 var addEvent = (function() {
     if (document.addEventListener) {
         return function(ele, event, func) {
@@ -20,6 +19,7 @@ var addEvent = (function() {
         };
     }
 })();
+
 /**
  * 字符串去首尾空格
  * @param  {String} str     待处理字符串
@@ -29,5 +29,20 @@ function trim(str) {
     // your implement
     var result = "";
     result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换
+    return result;
+}
+
+/**
+ * 简单的数字与字符串数组去重
+ * @param  {Arrary} arr 待处理的数组
+ * @return {Arrary}     返回去重后的数组
+ */
+function uniqArray(arr) {
+    var result = [];
+    for (var i = 0, len = arr.length; i < len; i++) {
+        if (arr[i] !== "" && result.indexOf(arr[i]) === -1) {
+            result.push(arr[i]);
+        }
+    }
     return result;
 }
