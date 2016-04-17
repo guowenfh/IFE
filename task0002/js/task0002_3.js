@@ -38,11 +38,11 @@ function winLoad() {
         createSpan.innerHTML = "<span class='nav-left'>&lt;</span><span class='nav-right'>&gt;</span>";
         element.parentNode.appendChild(createSpan);
 
-        //图片自动播放间隔时间。//默认4000毫秒
+        //图片自动播放间隔时间。//默认3000毫秒
         if (option.intervalTime) {
             iSpeed = option.intervalTime;
         } else {
-            iSpeed = 4000;
+            iSpeed = 3000;
         }
         //2.实现自动播放
         timer = setInterval(autoPlay, iSpeed);
@@ -74,7 +74,6 @@ function winLoad() {
                     "left": iTaget
                 });
                 clearInterval(timer);
-
                 // element.style.left=iTaget+"px";
             });
         }
@@ -85,11 +84,11 @@ function winLoad() {
          */
         function clickSpan() {
             delegateEvent(createSpan, "span", "click", function () {
+                clearInterval(timer);
                 var heightLi = $(".Slideshow-nav .active"); //高亮的待选li
-                var leftIndex = !getIndex(this); //点击左时为true，点击又为false
+                var leftIndex = !getIndex(this); //点击左时为true，点击右为false
                 //移动的目标值，默认正向
                 play(leftIndex);
-
             });
         }
         /**
