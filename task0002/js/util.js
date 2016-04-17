@@ -123,7 +123,7 @@ function hasClass(element, sClass) {
     if (element && element.className) {
         return element.className.match(new RegExp("(\\s|^)" + sClass + "(\\s|$)"));
     } else {
-        false;
+        return false;
     }
 }
 
@@ -144,7 +144,7 @@ function removeClass(element, oldClassName) {
 
 // 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值
 function isSiblingNode(element, siblingNode) {
-    return element.parentNode === siblingNode.parentNode
+    return element.parentNode === siblingNode.parentNode;
 }
 
 // 获取element相对于浏览器窗口的位置，返回一个对象{x, y}
@@ -285,7 +285,6 @@ function addEnterEvent(element, listener) {
  * @param   {string}   tag       需要触发事件的标签名
  * @param   {string}   eventName 触发的事件类型
  * @param   {function} listener  事件执行的函数
- * @returns {[[Type]]} [[Description]]
  */
 function delegateEvent(element, tag, eventName, listener) {
     // your implement
