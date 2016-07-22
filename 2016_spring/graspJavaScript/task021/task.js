@@ -16,7 +16,7 @@
     //处理兴趣列表
     function interestInpFun(value, obj) {
         //将输入分割成数组，并且进行去重操作
-        var vArr = uniqArray(value.split(/\n|\s+|\,|\，|\、|\;|\；/));
+        var vArr = uniqArray(value.split(/\n|\s+|\,|\，|\、|\;|\；\。\./));
         if ((interest.length + vArr.length) > 0 && (interest.length + vArr.length) < 10) {
             interest = vArr;
         } else {
@@ -38,6 +38,7 @@
         if (arr.length !== 0) {
             arr.forEach(function(ele, index) {
                 if (index < 10) {
+                    ele = ele.replace(/\n|\s+|\,|\，|\、|\;|\；\.\。/,'');
                     obj.innerHTML += "<li>" + ele + "</li>";
                 }
             });
