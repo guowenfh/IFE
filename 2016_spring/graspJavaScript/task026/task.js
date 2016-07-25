@@ -18,7 +18,7 @@
                     cont += 1;
                 }
             });
-            if (cont > 4 && cont <= 16) {
+            if (cont >= 4 && cont <= 16) {
                 result = "名称格式正确";
             } else {
                 result = "长度为4～16个字符";
