@@ -44,7 +44,7 @@
         // } //cuowu
         "no-constant-condition": 2,
         // 禁止在正则表达式中使用控制字符 ：new RegExp("\x1f")
-        "no-control-regex": 2,
+        "no-control-regex": 1,
         // 数组和对象键值对最后一个逗号， never参数：不能带末尾的逗号, always参数：必须带末尾的逗号，
         // always-multiline：多行模式必须带逗号，单行模式不能带逗号
         "comma-dangle": [1, "always-multiline"],
@@ -99,7 +99,7 @@
         // 要求使用 isNaN() 检查 NaN
         "use-isnan": 2,
         // 强制使用有效的 JSDoc 注释
-        "valid-jsdoc": 1,
+        "valid-jsdoc": [1, { "requireReturn": false }],
         // 强制 typeof 表达式与有效的字符串进行比较
         // typeof foo === "undefimed" 错误
         "valid-typeof": 2,
@@ -271,7 +271,7 @@
         // 禁止将 undefined 作为标识符
         "no-undefined": 0,
         // 禁止出现未使用过的变量
-        "no-unused-vars": [2, { "vars": "all", "args": "none" }],
+        "no-unused-vars": [1, { "vars": "all", "args": "none" }],
         // 不允许在变量定义之前使用它们
         "no-use-before-define": 0,
 
@@ -439,7 +439,7 @@
         // 强制在块之前使用一致的空格
         "space-before-blocks": [2, "always"],
         // 强制在 function的左括号之前使用一致的空格
-        "space-before-function-paren": [2, { "anonymous": "never", "named": "always" }],
+        "space-before-function-paren": 0,
         // 强制在圆括号内使用一致的空格
         "space-in-parens": [2, "never"],
         // 要求操作符周围有空格
