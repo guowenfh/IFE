@@ -1,0 +1,23 @@
+{
+  "name": "ife",
+  "version": "1.0.0",
+  "description": "百度前端技术学院任务实现",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guowenfh/IFE.git"
+  },
+  "author": "guowenfh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guowenfh/IFE/issues"
+  },
+  "homepage": "https://github.com/guowenfh/IFE#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1"
+  }
+}
