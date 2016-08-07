@@ -1,10 +1,12 @@
 (function(window, document) {
+    'use static';
     /**
      * 表单验证函数
      * @param  {String} text 待验证的输入
      * @return {String}      错误码
      */
     function inputCheck(text) {
+
         var text = trim(text);
         var result = "";
         var cont = 0;
