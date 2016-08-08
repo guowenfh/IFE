@@ -1,4 +1,4 @@
-/*global trim addEvent */
+/*global trim addEvent eventUtil*/
 (function(window, document) {
     'use static';
 

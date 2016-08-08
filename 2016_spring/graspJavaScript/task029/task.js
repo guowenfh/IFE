@@ -1,4 +1,4 @@
-/*global trim addEvent */
+/*global gg */
 (function(window, document) {
     'use static';
 
@@ -8,7 +8,7 @@
      * @return {String}      错误码
      */
     function inputCheck(text) {
-        text = trim(text);
+        text = gg.trim(text);
         var result = '';
         var cont = 0;
         if (text === '') {
@@ -55,7 +55,7 @@
         var input = document.querySelector('#inp');
         var button = document.querySelector('#button');
         var tipInfo = document.querySelector('#name-tips');
-        addEvent(button, 'click', function() {
+        gg.addEvent(button, 'click', function() {
             var result = inputCheck(input.value);
             tipInfo.innerHTML = result;
             changeClass([tipInfo, input], result);

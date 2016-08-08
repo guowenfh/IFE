@@ -22,22 +22,27 @@
         }
     })();
 
-    /*   function addEvent(ele,event,func){
-           if(ele.addEventListener){
-               addEvent = function(ele,event,func){
-                   ele.addEventListener(event,func,false);
-               };
-           }else if(ele.attachEvent){
-                addEvent = function(ele,event,func){
-                   ele.attachEvent('on'+event,func);
-               };
-           }else{
-                 addEvent = function(ele,event,func){
-                   ele['on'+event] = func;
-               };
-           }
-           return  addEvent(ele,event,func);
-       }*/
+    /**
+     * 事件删除函数,利用闭包特性，惰性载入（只需要加载一次）
+     * @param { Element  } ele     需要删除事件的Dom对象
+     * @param { String   } event   删除的事件类型
+     * @param { Fucntion } func    事件触发执行的函数
+     */
+    var removeEvent = (function () {
+        if (document.removeEventListener) {
+            return function (ele, type, func) {
+                ele.removeEventListener(type, func, false);
+            };
+        } else if (document.detachEvent) {
+            return function (ele, type, func) {
+                ele.detachEvent('on' + type, func);
+            };
+        } else {
+            return function (ele, type) {
+                ele['on' + type] = null;
+            };
+        }
+    })();
 
     /**
      * 字符串去首尾空格
@@ -45,7 +50,6 @@
      * @return {String}         处理后的字符串
      */
     function trim (str) {
-        // your implement
         var result = '';
         result = str.replace(/^\s+|\s+$/g, ''); // 使用正则进行字符串替换
         return result;
@@ -56,7 +60,7 @@
      * @param  {Arrary} arr 待处理的数组
      * @return {Arrary}     返回去重后的数组
      */
-    function uniqArray (arr) {
+    function uniqArray(arr) {
         var result = [];
         for (var i = 0, len = arr.length; i < len; i++) {
             if (arr[i] !== '' && result.indexOf(arr[i]) === -1) {
@@ -65,8 +69,11 @@
         }
         return result;
     }
-    window.addEvent = addEvent;
-    window.trim = trim;
-    window.uniqArray = uniqArray;
+    var gg = {};
+    gg.addEvent = addEvent;
+    gg.removeEvent = removeEvent;
+    gg.trim = trim;
+    gg.uniqArray = uniqArray;
+    window.gg = gg;
 })(window, document);
 

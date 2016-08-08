@@ -4,18 +4,18 @@
  * @param { String   } event   触发的事件类型
  * @param { Fucntion } func    事件触发执行的函数
  */
-var addEvent = (function() {
+var addEvent = (function () {
     if (document.addEventListener) {
-        return function(ele, event, func) {
+        return function (ele, event, func) {
             ele.addEventListener(event, func, false);
         };
     } else if (document.attachEvent) {
-        return function(ele, event, func) {
-            ele.attachEvent("on" + event, func);
+        return function (ele, event, func) {
+            ele.attachEvent('on' + event, func);
         };
     } else {
-        return function(ele, event, func) {
-            ele["on" + event] = func;
+        return function (ele, event, func) {
+            ele['on' + event] = func;
         };
     }
 })();
@@ -27,30 +27,30 @@ var addEvent = (function() {
  */
 function trim(str) {
     // your implement
-    var result = "";
-    result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换
+    var result = '';
+    result = str.replace(/^\s+|\s+$/g, ''); // 使用正则进行字符串替换
     return result;
 }
 
-(function() {
-    var inp = document.getElementById("input"),
-        list = document.getElementById("list"),
-        searchInp = document.getElementById("search-inp");
+(function () {
+    var inp = document.getElementById('input'),
+        list = document.getElementById('list'),
+        searchInp = document.getElementById('search-inp');
 
     function init() {
-        var btnArr = document.querySelectorAll("button"),
+        var btnArr = document.querySelectorAll('button'),
             leIn = btnArr[0],
             riIn = btnArr[1],
             leOut = btnArr[2],
             riOut = btnArr[3],
-            searchBtn = document.getElementById("search-btn");
+            searchBtn = document.getElementById('search-btn');
 
 
-        addEvent(leIn, "click", leftIn);
-        addEvent(riIn, "click", rightIn);
-        addEvent(leOut, "click", leftOut);
-        addEvent(riOut, "click", rightOut);
-        addEvent(searchBtn, "click", searchFun);
+        addEvent(leIn, 'click', leftIn);
+        addEvent(riIn, 'click', rightIn);
+        addEvent(leOut, 'click', leftOut);
+        addEvent(riOut, 'click', rightOut);
+        addEvent(searchBtn, 'click', searchFun);
     }
     init();
 
@@ -62,29 +62,30 @@ function trim(str) {
      */
     function searchFun() {
         var sValue = trim(searchInp.value),
-            reg = new RegExp(sValue+"+", "i"),
-            listArr = list.querySelectorAll("li"),
+            reg;
+        var listArr = list.querySelectorAll('li'),
             sValueMatch = null;
-        if (sValue !== "" && listArr.length !== 0) {
+        if (sValue !== '' && listArr.length !== 0) {
+            reg = new RegExp(sValue + '+', 'i');
             for (var i = 0, len = listArr.length; i < len; i++) {
                 sValueMatch = listArr[i].innerText.match(reg);
                 if (sValueMatch) {
-                console.log(sValueMatch);
+                    console.log(sValueMatch);
                     if (sValueMatch.index === 0) {
-                        listArr[i].innerHTML = "<span class='red'>" + sValueMatch[0] + "</span>" + sValueMatch.input.substr(sValueMatch[0].length);
+                        listArr[i].innerHTML = "<span class='red'>" + sValueMatch[0] + '</span>' + sValueMatch.input.substr(sValueMatch[0].length);
                     } else {
                         console.log(sValueMatch[0]);
-                        console.log(sValueMatch.input.substr(sValueMatch.index+sValueMatch[0].length));
-                        listArr[i].innerHTML = sValueMatch.input.substring(0, sValueMatch.index) + "<span class='red'>" + sValueMatch[0] + "</span>" + sValueMatch.input.substr(sValueMatch.index+sValueMatch[0].length);
+                        console.log(sValueMatch.input.substr(sValueMatch.index + sValueMatch[0].length));
+                        listArr[i].innerHTML = sValueMatch.input.substring(0, sValueMatch.index) + "<span class='red'>" + sValueMatch[0] + '</span>' + sValueMatch.input.substr(sValueMatch.index + sValueMatch[0].length);
                     }
-                    listArr[i].style.background = "#C9E8FF";
+                    listArr[i].style.background = '#C9E8FF';
                 } else {
                     listArr[i].innerHTML = listArr[i].innerText;
-                    listArr[i].style.background = "#fff";
+                    listArr[i].style.background = '#fff';
                 }
             }
         } else {
-            alert("当前列表中无值或者您未输入值");
+            alert('当前列表中无值或者您未输入值');
         }
     }
     /*
@@ -98,8 +99,8 @@ function trim(str) {
             value = value.split(/[^\w\u4e00-\u9fa5]+/);
             for (var i = 0, len = value.length; i < len; i++) {
                 fiChild = list.firstElementChild;
-                if (value[i] !== "") {
-                    fistEle = document.createElement("li");
+                if (value[i] !== '') {
+                    fistEle = document.createElement('li');
                     fistEle.innerHTML = value[i];
                     if (fiChild) {
                         list.insertBefore(fistEle, fiChild);
@@ -109,7 +110,7 @@ function trim(str) {
                 }
             }
         } else {
-            alert("请输入内容");
+            alert('请输入内容');
         }
     }
     /*
@@ -117,45 +118,45 @@ function trim(str) {
     */
     function rightIn() {
         var value = trim(inp.value),
-            lastEle = document.createElement("li");
+            lastEle = document.createElement('li');
         if (!!value) {
             value = value.split(/[^\w\u4e00-\u9fa5]+/);
             for (var i = 0, len = value.length; i < len; i++) {
-                if (value[i] !== "") {
-                    lastEle = document.createElement("li");
+                if (value[i] !== '') {
+                    lastEle = document.createElement('li');
                     lastEle.innerHTML = value[i];
                     list.appendChild(lastEle);
                 }
             }
         } else {
-            alert("请输入内容");
+            alert('请输入内容');
         }
     }
     /*
         左侧出
     */
     function leftOut() {
-        var fiChild = list.querySelectorAll("li")[0];
+        var fiChild = list.querySelectorAll('li')[0];
         if (fiChild) {
-            if (confirm("第一个元素的值为：" + fiChild.innerText + "，你确定要删除吗？")) {
+            if (confirm('第一个元素的值为：' + fiChild.innerText + '，你确定要删除吗？')) {
                 list.removeChild(fiChild);
             }
         } else {
-            alert("队列是空的");
+            alert('队列是空的');
         }
     }
     /*
     右侧出
      */
     function rightOut() {
-        var Child = list.querySelectorAll("li");
+        var Child = list.querySelectorAll('li');
         var latChild = Child[Child.length - 1];
         if (latChild) {
-            if (confirm("最后一个元素的值为：" + latChild.innerText + "，你确定要删除吗？")) {
+            if (confirm('最后一个元素的值为：' + latChild.innerText + '，你确定要删除吗？')) {
                 list.removeChild(latChild);
             }
         } else {
-            alert("队列是空的");
+            alert('队列是空的');
         }
     }
 

@@ -4,6 +4,7 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+jsconfig.json
 .idea/
 .vscode/
 node_modules/
