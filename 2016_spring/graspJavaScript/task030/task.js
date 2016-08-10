@@ -1,4 +1,4 @@
-/*global trim addEvent eventUtil*/
+/*global gg */
 (function(window, document) {
     'use static';
 
@@ -52,6 +52,28 @@
      *  函数初始化
      */
     function init() {
+        var form = document.getElementById('form');
+        var foucInfoArr = [
+            '必填，长度为4-16个字符',
+            '密码应该大于6位且由字母和数字混合组成',
+            '两次输入相同的密码',
+            '邮箱应该以类似@gmail.com的格式编写',
+            '请正确填写11位手机号码',
+        ];
+        var inputArr = form.querySelectorAll('input');
+        inputArr.forEach(function(item, index){
+            console.info(index,item)
+            gg.addEvent(item, 'focus', function(event){
+                console.info(event)
+                this.parentNode.innerHTML = this.outerHTML+'<div>asdsad</div>';
+                console.info(foucInfoArr[index]);
+            });
+            gg.addEvent(item, 'blur', function(event){
+                console.info(event)
+                this.parentNode.innerHTML = this.outerHTML+'<div>asdsad</div>';
+                console.info(foucInfoArr[index]);
+            });
+        });
         // 获取标签
     }
     init();

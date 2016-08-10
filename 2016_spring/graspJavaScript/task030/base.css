@@ -10,7 +10,10 @@ body {
     display: table;
     clear: both;
 }
-
+.container{
+    max-width: 1000px;
+    margin:auto;
+}
 .row [class *=col-] {
     float: left;
     height: 80px;
