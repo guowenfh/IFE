@@ -1,5 +1,6 @@
 body {
     padding: 20px;
+    font-family: "微软雅黑";
 }
 *{
     box-sizing: border-box;
@@ -54,7 +55,7 @@ body {
     background-color: #4BA1F6;
 }
 .input:focus {
-    box-shadow: 0px 0px 4px #0DFCF0;
+    box-shadow: 0px 0px 4px #2869E4;
 }
 
 .input.error {
@@ -66,8 +67,9 @@ body {
 }
 
 .tip {
-    margin: 5px 0;
+    margin: 10px 0;
     color: #999;
+    font-size: 14px;
 }
 
 .tip.error {

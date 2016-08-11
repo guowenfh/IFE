@@ -7,8 +7,8 @@
      * @param  {String} text 待验证的输入
      * @return {String}      错误码
      */
-    function inputCheck (text) {
-        text = trim(text);
+    function inputCheck(text) {
+        text = gg.trim(text);
         var result = '';
         var cont = 0;
         if (text === '') {
@@ -33,19 +33,18 @@
     /**
      * 更改提示样式
      * @param {Array} eleArr 需要更改样式的元素的数组
-     * @param {String} info className
+     * @param {String} isSsucce 是否成功
      */
-    function changeClass (eleArr, info) {
-        if (info && info === '名称格式正确') {
+    function changeClass(eleArr, isSsucce) {
+        if (isSsucce) {
             eleArr.forEach(function(item) {
-                item.className = 'success';
+                item.className += ' success';
             });
         } else {
             eleArr.forEach(function(item) {
-                item.className = 'error';
+                item.className += ' error';
             });
         }
-
     }
 
     /**
@@ -61,17 +60,25 @@
             '请正确填写11位手机号码',
         ];
         var inputArr = form.querySelectorAll('input');
-        inputArr.forEach(function(item, index){
-            console.info(index,item)
-            gg.addEvent(item, 'focus', function(event){
-                console.info(event)
-                this.parentNode.innerHTML = this.outerHTML+'<div>asdsad</div>';
-                console.info(foucInfoArr[index]);
+        inputArr.forEach(function(item, index) {
+            gg.addEvent(item, 'focus', function(event) {
+                var tipInfo = this.parentNode.getElementsByClassName('tip');
+                if (tipInfo.length === 0) {
+                    tipInfo = document.createElement('div');
+                    tipInfo.className = 'tip';
+                    tipInfo.innerHTML = foucInfoArr[index];
+                    this.parentNode.appendChild(tipInfo);
+                } else {
+                    tipInfo[0].className = 'tip';
+                    tipInfo[0].innerHTML = foucInfoArr[index];
+                }
             });
-            gg.addEvent(item, 'blur', function(event){
-                console.info(event)
-                this.parentNode.innerHTML = this.outerHTML+'<div>asdsad</div>';
-                console.info(foucInfoArr[index]);
+            gg.addEvent(item, 'blur', function(event) {
+                var tipInfo = this.parentNode.getElementsByClassName('tip');
+                console.info(this.value);
+                var tipText = inputCheck(this.value);
+                tipInfo[0].innerHTML = tipText;
+                changeClass([this, tipInfo[0]], false);
             });
         });
         // 获取标签
