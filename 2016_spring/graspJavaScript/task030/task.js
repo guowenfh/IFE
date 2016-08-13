@@ -49,6 +49,46 @@
     }
 
     /**
+     * 点击提交验证全部
+     * @param {Array} inputArr 待验证的输入框组
+     * @param {Array} checkArr 验证信息组
+     */
+    function clickCheck(inputArr, checkArr) {
+        var oBtn = document.querySelector('.btn-primary');
+        var tipInfo;
+        gg.addEvent(oBtn, 'click', function() {
+            inputArr.forEach(function(item, index) {
+                tipInfo = item.parentNode.getElementsByClassName('tip');
+                if (tipInfo.length === 0) {
+                    tipInfo = document.createElement('div');
+                    tipInfo.className = 'tip';
+                    item.parentNode.appendChild(tipInfo);
+                } else {
+                    tipInfo = tipInfo[0];
+                }
+                checkArr[index].id = item.id;
+                if (checkArr[index].id === 'password2') {
+                    checkArr[index].reg = new RegExp((document.getElementById('password')).value);
+                }
+                var tipText = inputCheck(item.value, checkArr[index]);
+                tipInfo.innerHTML = tipText;
+                changeClass([this, tipInfo], checkArr[index].isPassed);
+            });
+            var isPassed = true;
+            checkArr.forEach(function(item) {
+                if (!item.isPassed) {
+                    isPassed = false;
+                }
+            });
+            if (isPassed) {
+                alert('验证通过');
+            } else {
+                alert('验证失败');
+            }
+        });
+    }
+
+    /**
      *  函数初始化
      */
     function init() {
@@ -102,24 +142,24 @@
                     tipInfo.innerHTML = foucInfoArr[index];
                     this.parentNode.appendChild(tipInfo);
                 } else {
-                    tipInfo[0].className = 'tip';
-                    tipInfo[0].innerHTML = foucInfoArr[index];
+                    tipInfo = tipInfo[0];
+                    tipInfo.className = 'tip';
+                    tipInfo.innerHTML = foucInfoArr[index];
                 }
             });
             gg.addEvent(item, 'blur', function(event) {
-                var tipInfo = this.parentNode.getElementsByClassName('tip');
-                var checkIndex = checkArr[index];
-                checkIndex.id = this.id;
+                var tipInfo = this.parentNode.getElementsByClassName('tip')[0];
+                checkArr[index].id = this.id;
                 if (this.id === 'password2') {
-                    checkIndex.reg = new RegExp((document.getElementById('password')).value);
+                    checkArr[index].reg = new RegExp((document.getElementById('password')).value);
                 }
-                checkIndex.text = foucInfoArr[index];
-                var tipText = inputCheck(this.value, checkIndex);
-                tipInfo[0].innerHTML = tipText;
-                changeClass([this, tipInfo[0]], checkArr[index].isPassed);
+                checkArr[index].text = foucInfoArr[index];
+                var tipText = inputCheck(this.value, checkArr[index]);
+                tipInfo.innerHTML = tipText;
+                changeClass([this, tipInfo], checkArr[index].isPassed);
             });
         });
-        // 获取标签
+        clickCheck(inputArr, checkArr);
     }
     init();
 })(window, document);
