@@ -450,7 +450,7 @@ function ajax(url, options) {
 function getIndex(element) {
     var aBrother = element.parentNode.children;
     for (var i = 0, len = aBrother.length; i < len; i++) {
-        if (aBrother[i] == element) {
+        if (aBrother[i] === element) {
             return i;
         }
     }
