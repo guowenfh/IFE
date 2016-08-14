@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IFE JavaScript Task 31</title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/normalize/4.2.0/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="base.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="form">
+            <div class="row" id="student-type">
+                <label for="student1" class="col-50 radio-lab"><input type="radio" name='student' id='student1'  value="在校生" checked>在校生</label>
+                <label for="student2" class="col-50 radio-lab"><input type="radio" name='student' id='student2'  value="非在校生" >非在校生</label>
+            </div>
+            <div id="form-main">
+                <div class="row" id="city-school">
+                    <label for="" class="col-20 inp-label">
+                        地区
+                    </label>
+                    <div class="col-80 label-select">
+                        <select class="input col-40" id="city">
+                        </select>
+                        <select class="input col-50 mr-10" id="school">
+                        </select>
+                    </div>
+                </div>
+                <div class="row" id="work-place" style="display:none;">
+                    <label for="" class="col-20 inp-label">
+                        就业单位
+                    </label>
+                    <div class="col-80">
+                        <input type="text" class="input col-100 ">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../tools.js"></script>
+    <script src="task.js"></script>
+</body>
+
+</html>
