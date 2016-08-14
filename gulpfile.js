@@ -19,7 +19,6 @@ gulp.task('lint', function() {
         .pipe(plugins.eslint.format())
         .pipe(plugins.eslint.failAfterError());
 });
-
 /**
  * 文件压缩
  */
