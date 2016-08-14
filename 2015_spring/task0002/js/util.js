@@ -1,37 +1,37 @@
 // 判断arr是否为一个数组，返回一个bool值
 function isArray(arr) {
-    return typeof(arr) === "object" && Object.prototype.toString.call(arr) === "[object Array]";
+    return typeof (arr) === 'object' && Object.prototype.toString.call(arr) === '[object Array]';
 }
 
 
 // 判断fn是否为一个函数，返回一个bool值
 function isFunction(fn) {
-    return typeof(fn) === "function";
+    return typeof (fn) === 'function';
 }
 
 // 使用递归来实现一个深度克隆，可以复制一个目标对象，返回一个完整拷贝
 // 被复制的对象类型会被限制为数字、字符串、布尔、日期、数组、Object对象。不会包含函数、正则对象等
 function cloneObject(src) {
-    var result; //返回的复制后的结果。
-    if (typeof(src) === "object") {
-        //对象为日期对象时也直接赋值。
-        if (Object.prototype.toString.call(src) === "[object Date]") {
+    var result; // 返回的复制后的结果。
+    if (typeof (src) === 'object') {
+        // 对象为日期对象时也直接赋值。
+        if (Object.prototype.toString.call(src) === '[object Date]') {
             result = src;
         } else {
-            //判断对象的类型是Array还是Object，结果类型更改。
-            result = (Object.prototype.toString.call(src) === "[object Array]") ? [] : {};
+            // 判断对象的类型是Array还是Object，结果类型更改。
+            result = (Object.prototype.toString.call(src) === '[object Array]') ? [] : {};
             for (var i in src) {
-                if (src.hasOwnProperty(i)) { //排除继承属性
-                    if (typeof src[i] === "object") {
-                        result[i] = cloneObject(src[i]); //递归赋值
+                if (src.hasOwnProperty(i)) { // 排除继承属性
+                    if (typeof src[i] === 'object') {
+                        result[i] = cloneObject(src[i]); // 递归赋值
                     } else {
-                        result[i] = src[i]; //直接赋值
+                        result[i] = src[i]; // 直接赋值
                     }
                 }
             }
         }
     } else {
-        //对于原始类型直接赋值。
+        // 对于原始类型直接赋值。
         result = src;
     }
     return result;
@@ -41,41 +41,41 @@ function cloneObject(src) {
 // 对数组进行去重操作，只考虑数组中元素为数字或字符串，返回一个去重后的数组
 function uniqArray(arr) {
     // your implement
-    var result = []; //创建一个新数组。
+    var result = []; // 创建一个新数组。
     for (var i = 0, l = arr.length; i < l; i++) {
-        if (result.indexOf(arr[i]) === -1) { //查找是否已经含有该元素
-            result.push(arr[i]); //添加到新数组
+        if (result.indexOf(arr[i]) === -1) { // 查找是否已经含有该元素
+            result.push(arr[i]); // 添加到新数组
         }
     }
-    return result; //返回新数组
+    return result; // 返回新数组
 
 }
 
-//实现一个简单的`trim`函数，用于去除一个字符串，头部和尾部的空白字符
-//1.字符串查找
+// 实现一个简单的`trim`函数，用于去除一个字符串，头部和尾部的空白字符
+// 1.字符串查找
 function simpleTrim(str) {
     // your implement
-    var result = "";
-    for (var i = 0, il = str.length; i < il; i++) { //从头查找
-        if (str[i] != " " && str[i] != "\t") {
-            break; //查找到第一个不为空格及tab符的元素
+    var result = '';
+    for (var i = 0, il = str.length; i < il; i++) { // 从头查找
+        if (str[i] != ' ' && str[i] != '\t') {
+            break; // 查找到第一个不为空格及tab符的元素
         }
 
     }
-    for (var j = str.length - 1; j >= 0; j--) { //从尾查找
-        if (str[j] != " " && str[j] != "\t") {
+    for (var j = str.length - 1; j >= 0; j--) { // 从尾查找
+        if (str[j] != ' ' && str[j] != '\t') {
             break;
         }
 
     }
-    result = str.slice(i, j + 1); //截取需要的字符串。
+    result = str.slice(i, j + 1); // 截取需要的字符串。
     return result;
 }
-//2.正则
+// 2.正则
 function trim(str) {
     // your implement
-    var result = "";
-    result = str.replace(/^\s+|\s+$/g, ""); //使用正则进行字符串替换
+    var result = '';
+    result = str.replace(/^\s+|\s+$/g, ''); // 使用正则进行字符串替换
     return result;
 }
 
@@ -83,7 +83,7 @@ function trim(str) {
 // 实现一个遍历数组的方法，针对数组中每一个元素执行fn函数，并将数组索引和元素作为参数传递
 function each(arr, fn) {
     // your implement
-    for (var i = 0, l = arr.length; i < l; i++) { //遍历传参
+    for (var i = 0, l = arr.length; i < l; i++) { // 遍历传参
         fn(arr[i], i);
     }
 }
@@ -115,13 +115,13 @@ function isMobilePhone(phone) {
     return reg.test(phone);
 }
 
-//语言基础部分结束
+// 语言基础部分结束
 
 
-//DOM部分
+// DOM部分
 function hasClass(element, sClass) {
     if (element && element.className) {
-        return element.className.match(new RegExp("(\\s|^)" + sClass + "(\\s|$)"));
+        return element.className.match(new RegExp('(\\s|^)' + sClass + '(\\s|$)'));
     } else {
         return false;
     }
@@ -130,15 +130,15 @@ function hasClass(element, sClass) {
 // 为element增加一个样式名为newClassName的新样式
 function addClass(element, newClassName) {
     if (!hasClass(element, newClassName)) {
-        element.className += " " + newClassName;
+        element.className += ' ' + newClassName;
     }
 }
 
 // 移除element中的样式oldClassName
 function removeClass(element, oldClassName) {
     if (hasClass(element, oldClassName)) {
-        var reg = new RegExp("(\\s|^)" + oldClassName + "(\\s|$)");
-        element.className = element.className.replace(reg, "");
+        var reg = new RegExp('(\\s|^)' + oldClassName + '(\\s|$)');
+        element.className = element.className.replace(reg, '');
     }
 }
 
@@ -150,7 +150,7 @@ function isSiblingNode(element, siblingNode) {
 // 获取element相对于浏览器窗口的位置，返回一个对象{x, y}
 function getPosition(element) {
     var position = {};
-    position.x = element.getBoundingClientRect().left + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft); //获取相对位置+滚动距离=绝对位置.
+    position.x = element.getBoundingClientRect().left + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft); // 获取相对位置+滚动距离=绝对位置.
     position.y = element.getBoundingClientRect().top + Math.max(document.documentElement.scrollTop, document.body.scrollTop);
     return position;
 }
@@ -162,20 +162,20 @@ function getPosition(element) {
  * @returns {Array}  返回获取到的节点数组，需要注意的是使用ID选择器返的也是数组
  */
 function VQuery(selector, root) {
-    //用来保存选择的元素
-    var elements = []; //保存结果节点数组
-    var allChildren = null; //用来保存获取到的临时节点数组
-    root = root || document; //若没有给root，赋值document
+    // 用来保存选择的元素
+    var elements = []; // 保存结果节点数组
+    var allChildren = null; // 用来保存获取到的临时节点数组
+    root = root || document; // 若没有给root，赋值document
     switch (selector.charAt(0)) {
-        case "#": //id选择器
+        case '#': // id选择器
             elements.push(root.getElementById(selector.substring(1)));
             break;
-        case ".": //class选择器
-            if (root.getElementsByClassName) { //标准
+        case '.': // class选择器
+            if (root.getElementsByClassName) { // 标准
                 elements = root.getElementsByClassName(selector.substring(1));
-            } else { //兼容低版本浏览器
-                var reg = new RegExp("\\b" + selector.substring(1) + "\\b");
-                allChildren = root.getElementsByTagName("*");
+            } else { // 兼容低版本浏览器
+                var reg = new RegExp('\\b' + selector.substring(1) + '\\b');
+                allChildren = root.getElementsByTagName('*');
                 for (var i = 0, len = allChildren.length; i < len; i++) {
                     if (reg.test(allChildren[i].className)) {
                         elements.push(allChildren[i]);
@@ -183,20 +183,20 @@ function VQuery(selector, root) {
                 }
             }
             break;
-        case "[": //属性选择器
+        case '[': // 属性选择器
 
-            if (selector.indexOf("=") === -1) {
-                //只有属性没有值的情况
-                allChildren = root.getElementsByTagName("*");
+            if (selector.indexOf('=') === -1) {
+                // 只有属性没有值的情况
+                allChildren = root.getElementsByTagName('*');
                 for (var i = 0, len = allChildren.length; i < len; i++) {
                     if (allChildren[i].getAttribute(selector.slice(1, -1)) !== null) {
                         elements.push(allChildren[i]);
                     }
                 }
             } else {
-                //既有属性又有值的情况
-                var index = selector.indexOf("="); //缓存=出现的索引位置。
-                allChildren = root.getElementsByTagName("*");
+                // 既有属性又有值的情况
+                var index = selector.indexOf('='); // 缓存=出现的索引位置。
+                allChildren = root.getElementsByTagName('*');
                 for (var i = 0, len = allChildren.length; i < len; i++) {
                     if (allChildren[i].getAttribute(selector.slice(1, index)) === selector.slice(index + 1, -1)) {
                         elements.push(allChildren[i]);
@@ -204,11 +204,12 @@ function VQuery(selector, root) {
                 }
             }
             break;
-        default: //tagName
+        default: // tagName
             elements = root.getElementsByTagName(selector);
     }
     return elements;
 }
+
 /**
  * 模仿jQuery的迷你$选择符。
  * @param   {string} selector CSS方式的选择器，支持简单的后代选择器（只支持一级）
@@ -219,17 +220,17 @@ function $(selector) {
         return document;
     }
     selector = trim(selector);
-    //存在空格时，使用后代选择器
-    if (selector.indexOf(" ") !== -1) {
-        var selectorArr = selector.split(/\s+/); //分割成数组，第一项为parent，第二项为chlid。
-        //这里没去考虑特别多的情况了，只是简单的把参数传入。
+    // 存在空格时，使用后代选择器
+    if (selector.indexOf(' ') !== -1) {
+        var selectorArr = selector.split(/\s+/); // 分割成数组，第一项为parent，第二项为chlid。
+        // 这里没去考虑特别多的情况了，只是简单的把参数传入。
         return VQuery(selectorArr[1], VQuery(selectorArr[0])[0])[0];
-    } else { //普通情况,只返回获取到的第一个对象
+    } else { // 普通情况,只返回获取到的第一个对象
         return VQuery(selector, document)[0];
     }
 }
 
-//事件。
+// 事件。
 /**
  * 事件添加函数
  * @param {object}   element  需要绑定事件的对象
@@ -237,12 +238,12 @@ function $(selector) {
  * @param {function} listener 事件触发执行的函数
  */
 function addEvent(element, event, listener) {
-    if (element.addEventListener) { //标准
+    if (element.addEventListener) { // 标准
         element.addEventListener(event, listener, false);
-    } else if (element.attachEvent) { //低版本ie
-        element.attachEvent("on" + event, listener);
-    } else { //都不行的情况
-        element["on" + event] = listener;
+    } else if (element.attachEvent) { // 低版本ie
+        element.attachEvent('on' + event, listener);
+    } else { // 都不行的情况
+        element['on' + event] = listener;
     }
 }
 
@@ -254,24 +255,24 @@ function addEvent(element, event, listener) {
  */
 function removeEvent(element, event, listener) {
     // your implement
-    if (element.removeEventListener) { //标准
+    if (element.removeEventListener) { // 标准
         element.removeEventListener(event, listener, false);
-    } else if (element.detachEvent) { //低版本ie
-        element.detachEvent("on" + event, listener);
-    } else { //都不行的情况
-        element["on" + event] = null;
+    } else if (element.detachEvent) { // 低版本ie
+        element.detachEvent('on' + event, listener);
+    } else { // 都不行的情况
+        element['on' + event] = null;
     }
 }
 
 // 实现对click事件的绑定
 function addClickEvent(element, listener) {
-    addEvent(element, "click", listener);
+    addEvent(element, 'click', listener);
 }
 // 实现对于按Enter键时的事件绑定
 function addEnterEvent(element, listener) {
     // your implement
-    addEvent(element, "keydown", function(ev) {
-        //兼容性处理。
+    addEvent(element, 'keydown', function(ev) {
+        // 兼容性处理。
         var oEvent = ev || window.event;
         if (oEvent.keyCode === 13) {
             listener();
@@ -289,16 +290,16 @@ function addEnterEvent(element, listener) {
 function delegateEvent(element, tag, eventName, listener) {
     // your implement
     return addEvent(element, eventName, function(ev) {
-        var oEvent = ev || event; //兼容处理
-        var target = oEvent.target || oEvent.srcElement; //兼容处理
+        var oEvent = ev || event; // 兼容处理
+        var target = oEvent.target || oEvent.srcElement; // 兼容处理
         if (target.tagName.toLocaleLowerCase() === tag) {
-            listener.call(target, oEvent); //使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）
+            listener.call(target, oEvent); // 使用call方法修改执行函数中的this指向，现在this指向触发了事件的HTML节点（可直接使用this.innerHTML返回该节点内容）
         }
     });
 }
 
 
-//把上面几个函数和$做一下结合，把他们变成$对象的一些方法
+// 把上面几个函数和$做一下结合，把他们变成$对象的一些方法
 $.on = function(selector, event, listener) {
     return addEvent($(selector), event, listener);
 };
@@ -316,12 +317,12 @@ $.delegate = function(selector, tag, eventName, listener) {
 };
 
 
-//BOM
+// BOM
 
 // 判断是否为IE浏览器，返回-1或者版本号
 function isIE() {
-    var uUserAgent = navigator.userAgent; //保存浏览器的userAgent
-    var ieAgent = uUserAgent.match(/rv:(\d+.\d+)/i) || uUserAgent.match(/msie (\d+.\d+)/i); //这里是为了处理到ie11
+    var uUserAgent = navigator.userAgent; // 保存浏览器的userAgent
+    var ieAgent = uUserAgent.match(/rv:(\d+.\d+)/i) || uUserAgent.match(/msie (\d+.\d+)/i); // 这里是为了处理到ie11
     if (ieAgent) {
         return ieAgent[1];
     } else {
@@ -338,7 +339,7 @@ function isIE() {
 function setCookie(cookieName, cookieValue, expiredays) {
     var oDate = new Date();
     oDate.setDate(oDate.getDate() + expiredays);
-    document.cookie = cookieName + "=" + cookieValue + ";expires=" + oDate;
+    document.cookie = cookieName + '=' + cookieValue + ';expires=' + oDate;
 }
 
 /**
@@ -347,14 +348,14 @@ function setCookie(cookieName, cookieValue, expiredays) {
  * @returns {String} 返回寻找到的cookie值,无时为空
  */
 function getCookie(cookieName) {
-    var arr = document.cookie.split("; ");
+    var arr = document.cookie.split('; ');
     for (var i = 0; i < arr.length; i++) {
-        var arr2 = arr[i].split("=");
+        var arr2 = arr[i].split('=');
         if (arr2[0] == cookieName) {
             return arr2[1];
         }
     }
-    return "";
+    return '';
 }
 
 /**
@@ -362,7 +363,7 @@ function getCookie(cookieName) {
  * @param {String} cookieName 待删除的cookie名
  */
 function removeCookie(cookieName) {
-    setCookie(cookieName, "1", -1);
+    setCookie(cookieName, '1', -1);
 }
 
 
@@ -378,63 +379,64 @@ function removeCookie(cookieName) {
  *@returns {XMLHttpRequest} 发送请求的XMLHttpRequest对象
  */
 function ajax(url, options) {
-    //1.创建ajax对象
+    // 1.创建ajax对象
     var oAjax = null;
+
     /**
      * 此处必须需要使用window.的方式,表示为window对象的一个属性.不存在时值为undefined,进入else
      * 若直接使用XMLHttpRequest,在不支持的情况下会报错
      **/
     if (window.XMLHttpRequest) {
-        //IE6以上
+        // IE6以上
         oAjax = new XMLHttpRequest();
     } else {
-        oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+        oAjax = new ActiveXObject('Microsoft.XMLHTTP');
     }
 
-    //2.连接服务器
-    //open(方法,url,是否异步)
-    var param = ""; //请求参数。
-    //只有data存在，且为对象使才执行
-    var data = options.data ? options.data : -1; //缓存data
-    if (typeof(data) === "object") {
-        for (var key in data) { //请求参数拼接
+    // 2.连接服务器
+    // open(方法,url,是否异步)
+    var param = ''; // 请求参数。
+    // 只有data存在，且为对象使才执行
+    var data = options.data ? options.data : -1; // 缓存data
+    if (typeof (data) === 'object') {
+        for (var key in data) { // 请求参数拼接
             if (data.hasOwnProperty(key)) {
-                param += key + "=" + data[key] + "&";
+                param += key + '=' + data[key] + '&';
             }
         }
-        param.replace(/&$/, "");
+        param.replace(/&$/, '');
     } else {
-        param = "timestamp=" + new Date().getTime();
+        param = 'timestamp=' + new Date().getTime();
     }
 
-    //3.发送请求
-    var type = options.type ? options.type.toUpperCase() : "GET";
-    if (type === "GET") {
-        oAjax.open("GET", url + "?" + param, true);
+    // 3.发送请求
+    var type = options.type ? options.type.toUpperCase() : 'GET';
+    if (type === 'GET') {
+        oAjax.open('GET', url + '?' + param, true);
         oAjax.send();
     } else {
-        oAjax.open("POST", url, true);
-        oAjax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        oAjax.open('POST', url, true);
+        oAjax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         oAjax.send(param);
     }
 
-    //4.接收返回
-    //OnRedayStateChange事件
+    // 4.接收返回
+    // OnRedayStateChange事件
     oAjax.onreadystatechange = function() {
         if (oAjax.readyState === 4) {
             if (oAjax.status === 200) {
-                //请求成功。形参为获取到的字符串形式的响应数据
+                // 请求成功。形参为获取到的字符串形式的响应数据
                 options.onsuccess(oAjax.responseText, oAjax);
             } else {
-                //先判断是否存在请求失败函数
-                //存在时，形参为XMLHttpRequest对象，便于进行错误进行处理
+                // 先判断是否存在请求失败函数
+                // 存在时，形参为XMLHttpRequest对象，便于进行错误进行处理
                 if (options.onfail) {
                     options.onfail(oAjax);
                 }
             }
         }
     };
-    return oAjax; //发送请求的XMLHttpRequest对象
+    return oAjax; // 发送请求的XMLHttpRequest对象
 }
 
 
@@ -453,6 +455,7 @@ function getIndex(element) {
         }
     }
 }
+
 /**
  * 获取实际样式函数
  * @param   {HTMLElement}   element  需要寻找的样式的html节点
@@ -460,14 +463,15 @@ function getIndex(element) {
  * @returns {String} 获取到的属性
  */
 function getStyle(element, attr) {
-    //IE写法
+    // IE写法
     if (element.currentStyle) {
         return element.currentStyle[attr];
-        //标准
+        // 标准
     } else {
         return getComputedStyle(element, false)[attr];
     }
 }
+
 /**
  * 完美运动框架
  * @param {HTMLElement} element 运动对象
@@ -478,32 +482,32 @@ function getStyle(element, attr) {
  */
 function startMove(element, json, func) {
     clearInterval(element.timer);
-    var flag = true; //假设所有运动到达终点.
+    var flag = true; // 假设所有运动到达终点.
     element.timer = setInterval(function() {
         for (var attr in json) {
-            //1.取当前的属性值。
+            // 1.取当前的属性值。
             var iCurrent = 0;
-            if (attr === "opacity") { //为透明度时执行。
+            if (attr === 'opacity') { // 为透明度时执行。
                 iCurrent = Math.round(parseFloat(getStyle(element, attr)) * 100);
-            } else { //默认情况
-                iCurrent = parseInt(getStyle(element, attr)); //实际样式大小
+            } else { // 默认情况
+                iCurrent = parseInt(getStyle(element, attr)); // 实际样式大小
             }
-            //2.算运动速度,动画缓冲效果
-            var iSpeed = (json[attr] - iCurrent) / 10; //(目标值-当前值)/缩放系数=速度
-            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed); //速度取整
-            //3.未到达目标值时，执行代码
+            // 2.算运动速度,动画缓冲效果
+            var iSpeed = (json[attr] - iCurrent) / 10; // (目标值-当前值)/缩放系数=速度
+            iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed); // 速度取整
+            // 3.未到达目标值时，执行代码
             if (iCurrent != json[attr]) {
-                flag = false; //终止条件
-                if (attr === "opacity") { //为透明度时，执行
-                    element.style.filter = "alpha(opacity:" + (iCurrent + iSpeed) + ")"; //IE
-                    element.style.opacity = (iCurrent + iSpeed) / 100; //标准
-                } else { //默认
-                    element.style[attr] = iCurrent + iSpeed + "px";
+                flag = false; // 终止条件
+                if (attr === 'opacity') { // 为透明度时，执行
+                    element.style.filter = 'alpha(opacity:' + (iCurrent + iSpeed) + ')'; // IE
+                    element.style.opacity = (iCurrent + iSpeed) / 100; // 标准
+                } else { // 默认
+                    element.style[attr] = iCurrent + iSpeed + 'px';
                 }
             } else {
                 flag = true;
             }
-            //4. 运动终止，是否回调
+            // 4. 运动终止，是否回调
             if (flag) {
                 clearInterval(element.timer);
                 if (func) {
