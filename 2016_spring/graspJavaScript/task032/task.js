@@ -32,7 +32,14 @@
     /**
      * 创建表单
      */
-    function CreateForm(){
+    function CreateForm(config) {
+        this.label = config.label || '名称';
+        this.type = config.type || 'text';
+        this.rules = config.rules || '必填';
+        this.label = config.label || '名称';
+        this.success = config.success || '可用';
+        this.fail = config.fail || '验证不通过请重新填写！';
+        this.validator = config.validator;
         // 创建。。
     }
 
