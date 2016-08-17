@@ -33,20 +33,23 @@
      * 创建表单
      */
     function CreateForm(config) {
-        this.label = config.label || '名称';
-        this.type = config.type || 'text';
-        this.rules = config.rules || '必填';
-        this.label = config.label || '名称';
-        this.success = config.success || '可用';
-        this.fail = config.fail || '验证不通过请重新填写！';
-        this.validator = config.validator;
-        // 创建。。
+
     }
 
     /**
      *  函数初始化
      */
     function init() {
+        var formContent = document.getElementById('form-content');
+        var label = document.createElement('label');
+        var inp = document.createElement('input');
+        var tip = document.createElement('div');
+        label.appendChild(inp);
+        label.appendChild(tip);
+        formContent.appendChild(label);
+        gg.addEvent(inp,'focus',function(e){
+            console.info(e);
+        });
         // init
     }
     init();
