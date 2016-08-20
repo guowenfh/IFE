@@ -1,12 +1,11 @@
 /*global gg */
 (function(window, document) {
+
     /**
      * 创建表单
      */
     function createForm() {
-        var obj = {};
-        this.init = function() {
-            var tagName = this.tagName();
+        var obj = {
 
         };
 
@@ -23,18 +22,87 @@
             };
             var tagGroup = document.querySelector('.tag-group');
             var inptypeGroup = document.querySelector('.inptype-group');
-            gg.delegate(tagGroup, 'input', 'click', function() {
+            var lengthGroup = document.querySelector('.length-group');
+            var textareaGroup = document.querySelector('.textarea-group');
+            gg.delegate(tagGroup, 'input', 'click', function(ev) {
                 if (this.value === '1') {
-                    gg.removeClass(inptypeGroup, 'hide')
-                    gg.addClass(inptypeGroup, 'show');
+                    inptypeGroup.style.display = 'block';
+                    lengthGroup.style.display = 'block';
+                    textareaGroup.style.display = 'none';
                 } else {
-                    gg.removeClass(inptypeGroup, 'show')
-                    gg.addClass(inptypeGroup, 'hide');
+                    inptypeGroup.style.display = 'none';
+                    lengthGroup.style.display = 'none';
+                    if (this.value === '2') {
+                        textareaGroup.style.display = 'none';
+                    } else {
+                        textareaGroup.style.display = 'block';
 
+                    }
                 }
                 obj.tagName = tagMap[this.value];
             });
 
+        };
+
+        /**
+         * 文本输入框的类型
+         */
+        this.regGroup = function() {
+            var regMap = {
+                '1': {
+                    type: 'text',
+                    reg: /^\d+$/,
+                },
+                '2': {
+                    type: 'number',
+                    reg: /^\d+$/,
+                },
+                '3': {
+                    type: 'password',
+                    reg: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}$/,
+                },
+                '4': {
+                    type: 'tel',
+                    reg: /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/,
+                },
+                '5': {
+                    type: 'email',
+                    reg: /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+                },
+            };
+            var inptypeGroup = document.querySelector('.inptype-group');
+            gg.delegate(inptypeGroup, 'input', 'click', function() {
+                obj.reg = regMap[this.value];
+            });
+        };
+
+        /**
+         * 点击创建按钮
+         */
+        this.create = function() {
+            var createBtn = document.getElementById('create-btn');
+            gg.addEvent(createBtn, 'click', function(ev) {
+                ev = ev || window.event;
+                ev.defaultPrevented = true;
+                var formContent = document.getElementById('form-content');
+                var label = document.createElement('label');
+                label.innerText = '213123';
+                var inp = document.createElement('input');
+                var tip = document.createElement('div');
+                label.appendChild(inp);
+                label.appendChild(tip);
+                formContent.appendChild(label);
+            });
+
+        };
+
+        /**
+         * 初始化各种方法
+         */
+        this.init = function() {
+            this.tagName();
+            this.regGroup();
+            this.create();
         };
         this.init();
     }

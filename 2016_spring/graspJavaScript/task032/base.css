@@ -97,11 +97,3 @@ body {
 .btn-red:active {
     background-color: #E25D5D;
 }
-
-.show {
-    display: inline-block;
-}
-
-.hide {
-    display: none;
-}

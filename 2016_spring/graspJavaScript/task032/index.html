@@ -13,7 +13,6 @@
 <body>
     <div class="container">
         <div class="row">
-
             <form id="form-create" class="col-20 pull-right-10 form-create">
                 <fieldset class="tag-group">
                     <legend>标签类型</legend>
@@ -23,37 +22,37 @@
                     <label><input type="radio" name= "tagName" value="4">多选框</label>
                     <label><input type="radio" name= "tagName" value="5">下拉框</label>
                 </fieldset>
+                <fieldset class="length-group">
+                    <legend>长度区间</legend>
+                    <label><input type="text" value="4">--</label>
+                    <label><input type="text" value="16"></label>
+                </fieldset>
                 <fieldset class="inptype-group">
                     <legend>输入框类型</legend>
-                    <label><input type="radio" name="typeName" checked>文本</label>
-                    <label><input type="radio" name="typeName">数字</label>
-                    <label><input type="radio" name="typeName">密码</label>
-                    <label><input type="radio" name="typeName">电话</label>
-                    <label><input type="radio" name="typeName">邮箱</label>
+                    <label><input type="radio" name="typeName" value="1" checked>文本</label>
+                    <label><input type="radio" name="typeName" value="2">数字</label>
+                    <label><input type="radio" name="typeName" value="3">密码</label>
+                    <label><input type="radio" name="typeName" value="4">电话</label>
+                    <label><input type="radio" name="typeName" value="5">邮箱</label>
                 </fieldset>
+
                 <fieldset class="class-group">
                     <legend>样式配置</legend>
                     <label>名称：<input type="text"></label>
-                    <label><input type="radio" checked>必填</label>
-                    <label><input type="radio">选填</label>
                     <label>
                         样式
-                        <select>
+                        <select class="class-select">
                             <option value="default1">样式一</option>
                             <option value="default2">样式二</option>
                         </select>
                     </label>
                 </fieldset>
-                <fieldset class="length-group">
-                    <legend>长度区间</legend>
-                    <label><input type="text">--</label>
-                    <label><input type="text"></label>
-                </fieldset>
-                <fieldset class="textarea-group">
+
+                <fieldset class="textarea-group" style="display:none;">
                     <legend>选项值</legend>
                     <textarea placeholder="输入数字、中文、英文等，可以通过用回车，逗号（全角半角均可），顿号，空格进行分割" id="interest-inp" rows="6"></textarea>
                 </fieldset>
-                <button class="btn btn-red">增加</button>
+                <input class="btn btn-red" id="create-btn" value="增加" type="button">
             </form>
             <form class="col-65 form-content">
                 <fieldset>
@@ -62,7 +61,6 @@
                 </fieldset>
             </form>
         </div>
-
     </div>
     <script src="../tools.js"></script>
     <script src="task.js"></script>
