@@ -120,15 +120,35 @@
             element.className = element.className.replace(reg, '');
         }
     }
+
+    /**
+     * 事件代理函数
+     * @param {HTMLElement} element 需要进行事件代理的父元素。
+     * @param {string} tag 需要触发事件的标签名
+     * @param {string} eventName 触发的事件类型
+     * @param {function} func 事件执行的函数
+     * @returns {function} 代理函数
+     */
+    function delegateEvent(element, tag, eventName, func) {
+        return addEvent(element, eventName, function(ev) {
+            ev = ev || window.event;
+            var target = ev.target || ev.srcElement;
+            if (target.tagName.toLowerCase() === tag.toLowerCase()) {
+                func.call(target, ev);
+            }
+        });
+    }
+
     var gg = {};
     gg.addEvent = addEvent;
     gg.removeEvent = removeEvent;
+    gg.delegate = delegateEvent;
     gg.trim = trim;
     gg.uniqArray = uniqArray;
     gg.each = each;
     gg.hasClass = hasClass;
     gg.addClass = addClass;
     gg.removeClass = removeClass;
+
     window.gg = gg;
 })(window, document);
-

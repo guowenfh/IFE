@@ -43,50 +43,65 @@ body {
     width: 65%;
 }
 
-.btn{
+.btn {
     float: right;
-    border:none;
+    border: none;
     padding: 8px 15px;
-    border-radius:5px;
-    outline:none;
+    border-radius: 5px;
+    outline: none;
     cursor: pointer;
 }
 
-
-.form-create{
+.form-create {
     min-width: 180px;
 }
-.tag-group label{
-    display:inline-block;
+
+.tag-group label {
+    display: inline-block;
 }
-.class-group label{
-    display:block;
+
+.class-group label {
+    display: block;
 }
-.class-group input[type="text"]{
-    display:inline-block;
-    width:60%;
+
+.class-group input[type="text"] {
+    display: inline-block;
+    width: 60%;
 }
+
 .form-content fieldset {
     min-height: 400px;
 }
-.length-group{
+
+.length-group {
     text-align: center;
 }
-.length-group input{
-    display:inline-block;
+
+.length-group input {
+    display: inline-block;
     width: 40%;
 }
-.textarea-group textarea{
-    display:block;
-    width:100%;
+
+.textarea-group textarea {
+    display: block;
+    width: 100%;
     height: 80px;
 }
 
-.btn-red{
-    margin:10px;
+.btn-red {
+    margin: 10px;
     color: #fff;
     background-color: #DF3737;
 }
-.btn-red:active{
+
+.btn-red:active {
     background-color: #E25D5D;
+}
+
+.show {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
 }
