@@ -50,29 +50,37 @@
         this.regGroup = function() {
             var regMap = {
                 '1': {
+                    name: '名称',
                     type: 'text',
                     reg: /^\d+$/,
                 },
                 '2': {
+                    name: '数字',
                     type: 'number',
                     reg: /^\d+$/,
                 },
                 '3': {
+                    name: '密码',
                     type: 'password',
                     reg: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}$/,
                 },
                 '4': {
+                    name: '电话',
                     type: 'tel',
                     reg: /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/,
                 },
                 '5': {
+                    name: '邮箱',
                     type: 'email',
                     reg: /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
                 },
             };
             var inptypeGroup = document.querySelector('.inptype-group');
+            var labelText = document.getElementById('label-text');
             gg.delegate(inptypeGroup, 'input', 'click', function() {
-                obj.reg = regMap[this.value];
+                obj.reg = regMap[this.value].reg;
+                obj.type = regMap[this.value].type;
+                labelText.value = regMap[this.value].name;
             });
         };
 
@@ -81,10 +89,10 @@
          */
         this.create = function() {
             var createBtn = document.getElementById('create-btn');
+            // 表单生成容器
+            var formContent = document.getElementById('form-content');
             gg.addEvent(createBtn, 'click', function(ev) {
-                ev = ev || window.event;
-                ev.defaultPrevented = true;
-                var formContent = document.getElementById('form-content');
+                // var oDiv = document.createElement('div');
                 var label = document.createElement('label');
                 label.innerText = '213123';
                 var inp = document.createElement('input');
