@@ -9,23 +9,15 @@
      */
     function inputCheck(text, data) {
         text = gg.trim(text);
-        var map = {
-            name: '名称',
-            password: '密码',
-            password2: '再次输入密码',
-            email: '邮箱',
-            phone: '手机号码',
-        };
-        if (text === '') {
-            return map[data.id] + '不能为空！';
-        }
         if (data.min && text.length < data.min || data.max && text.length > data.max) {
+            data.isPassed = false;
             return (data.min ? '最少需要' + data.min + '个字符 ' : '') + (data.max ? ' 最多不能超过' + data.max + '个字符' : '');
         }
         if (!data.reg || data.reg.test(text)) {
             data.isPassed = true;
             return data.success;
         } else {
+            data.isPassed = false;
             return data.error;
         }
     }
@@ -108,18 +100,37 @@
                 return label;
             } else {
                 input = document.createElement('input');
+                input.type = inputType;
+            }
+            // 验证规则
+            var regMap = checkArr['input'][inputType];
+
+            var len = lengthGroup.querySelectorAll('input');
+            if (len[0].value && len[0].value) {
+                if (len[0].value < len[1].value) {
+                    regMap.min = len[0].value;
+                    regMap.max = len[1].value;
+                } else {
+                    regMap.min = len[0].value;
+                    regMap.max = len[1].value;
+                }
             }
 
             gg.addClass(input, 'input');
             var tip = document.createElement('p');
-            tip.innerHTML = '123123';
+            tip.innerHTML = regMap.rules;
+            var tipClassName = 'tip ' + document.querySelector('.class-select').value;
+            tip.className = tipClassName;
 
-            tip.className = 'tip';
-            gg.addClass(tip, document.querySelector('.class-select').value);
-
-            gg.addEvent(input, 'blur', function() {
-                changeClass([input, tip], false);
+            gg.addEvent(input, 'focus', function() {
+                input.className = 'input';
+                tip.className = tipClassName;
             });
+            gg.addEvent(input, 'blur', function() {
+                tip.innerHTML = inputCheck(this.value, regMap);
+                changeClass([input, tip], regMap.isPassed);
+            });
+
             inputWrap.appendChild(input);
             inputWrap.appendChild(tip);
             label.appendChild(inputWrap);
@@ -152,7 +163,6 @@
             var interestInp = document.getElementById('interest-inp'); // 用于生成多选框的z
             labelValue = labelValue || '名称';
             var valueArr = interestInpFun(interestInp.value);
-            console.info(valueArr);
 
             /**
              * 用于生成多选框html片段
@@ -200,7 +210,6 @@
                 } else {
                     oDiv.appendChild(that.createInput(tagName, inputType, labelValue));
                 }
-
                 formContent.appendChild(oDiv);
             });
         };
@@ -220,33 +229,3 @@
 
 
 })(window, document);
-
-
-// (function(window, document) {
-//     'use static';
-
-//     // {
-//     //     label: '名称',                    // 表单标签
-//     //     type: 'input',                   // 表单类型
-//     //     validator: function () {...},    // 表单验证规
-//     //     rules: '必填，长度为4-16个字符',    // 填写规则提示
-//     //     success: '格式正确',              // 验证通过提示
-//     //     fail: '名称不能为空'               // 验证失败提示
-//     // }
-
-
-
-//     /**
-//      *  函数初始化
-//      */
-//     function init() {
-//         var formContent = document.getElementById('form-content');
-//         var label = document.createElement('label');
-//         var inp = document.createElement('input');
-//         var tip = document.createElement('div');
-//         label.appendChild(inp);
-//         label.appendChild(tip);
-//         formContent.appendChild(label);
-//     }
-//     init();
-// })(window, document);
