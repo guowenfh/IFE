@@ -16,24 +16,25 @@
             <form id="form-create" class="col-20 pull-right-10 form-create">
                 <fieldset class="tag-group">
                     <legend>标签类型</legend>
-                    <label><input type="radio" name= "tagName" value="1" checked>输入框</label>
-                    <label><input type="radio" name= "tagName" value="2">文本域</label>
-                    <label><input type="radio" name= "tagName" value="3">单选框</label>
-                    <label><input type="radio" name= "tagName" value="4">多选框</label>
-                    <label><input type="radio" name= "tagName" value="5">下拉框</label>
+                    <label><input type="radio" name= "tagName" value="input" checked>输入框</label>
+                    <label><input type="radio" name= "tagName" value="textarea">文本域</label>
+                    <label><input type="radio" name= "tagName" value="radio">单选框</label>
+                    <label><input type="radio" name= "tagName" value="check">多选框</label>
+                    <label><input type="radio" name= "tagName" value="select">下拉框</label>
                 </fieldset>
                 <fieldset class="length-group">
                     <legend>长度区间</legend>
-                    <label><input type="text" value="4">--</label>
-                    <label><input type="text" value="16"></label>
+                    <label><input type="text"></label>
+                    <span>--</span>
+                    <label><input type="text"></label>
                 </fieldset>
                 <fieldset class="inptype-group">
                     <legend>输入框类型</legend>
-                    <label><input type="radio" name="typeName" value="1" checked>文本</label>
-                    <label><input type="radio" name="typeName" value="2">数字</label>
-                    <label><input type="radio" name="typeName" value="3">密码</label>
-                    <label><input type="radio" name="typeName" value="4">电话</label>
-                    <label><input type="radio" name="typeName" value="5">邮箱</label>
+                    <label><input type="radio" name="typeName" value="text" checked>文本</label>
+                    <label><input type="radio" name="typeName" value="number">数字</label>
+                    <label><input type="radio" name="typeName" value="password">密码</label>
+                    <label><input type="radio" name="typeName" value="tel">电话</label>
+                    <label><input type="radio" name="typeName" value="email">邮箱</label>
                 </fieldset>
 
                 <fieldset class="class-group">
@@ -62,6 +63,7 @@
             </form>
         </div>
     </div>
+    <script src="checkArr.js"></script>
     <script src="../tools.js"></script>
     <script src="task.js"></script>
 </body>

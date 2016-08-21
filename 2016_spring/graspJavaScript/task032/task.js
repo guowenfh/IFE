@@ -1,4 +1,4 @@
-/*global gg */
+/*global gg checkArr*/
 (function(window, document) {
 
     /**
@@ -13,93 +13,59 @@
          * 获得选中的tagName
          */
         this.tagName = function() {
-            var tagMap = {
-                '1': 'input',
-                '2': 'textarea',
-                '3': 'raido',
-                '4': 'check',
-                '5': 'select',
-            };
             var tagGroup = document.querySelector('.tag-group');
             var inptypeGroup = document.querySelector('.inptype-group');
             var lengthGroup = document.querySelector('.length-group');
             var textareaGroup = document.querySelector('.textarea-group');
+            var labelText = document.getElementById('label-text');
             gg.delegate(tagGroup, 'input', 'click', function(ev) {
-                if (this.value === '1') {
+                if (this.value === 'input') {
                     inptypeGroup.style.display = 'block';
                     lengthGroup.style.display = 'block';
                     textareaGroup.style.display = 'none';
                 } else {
                     inptypeGroup.style.display = 'none';
                     lengthGroup.style.display = 'none';
-                    if (this.value === '2') {
+                    if (this.value === 'textarea') {
                         textareaGroup.style.display = 'none';
                     } else {
                         textareaGroup.style.display = 'block';
-
                     }
+                    labelText.value = checkArr[this.value].name;
                 }
-                obj.tagName = tagMap[this.value];
             });
-
         };
 
         /**
          * 文本输入框的类型
          */
         this.regGroup = function() {
-            var regMap = {
-                '1': {
-                    name: '名称',
-                    type: 'text',
-                    reg: /^\d+$/,
-                },
-                '2': {
-                    name: '数字',
-                    type: 'number',
-                    reg: /^\d+$/,
-                },
-                '3': {
-                    name: '密码',
-                    type: 'password',
-                    reg: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,}$/,
-                },
-                '4': {
-                    name: '电话',
-                    type: 'tel',
-                    reg: /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/,
-                },
-                '5': {
-                    name: '邮箱',
-                    type: 'email',
-                    reg: /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
-                },
-            };
+            var regMap = checkArr.input;
             var inptypeGroup = document.querySelector('.inptype-group');
             var labelText = document.getElementById('label-text');
             gg.delegate(inptypeGroup, 'input', 'click', function() {
-                obj.reg = regMap[this.value].reg;
-                obj.type = regMap[this.value].type;
                 labelText.value = regMap[this.value].name;
             });
         };
 
         /**
          * 点击创建按钮
+         * @param {Object} obj 表单生成项
          */
-        this.create = function() {
+        this.create = function(obj) {
             var createBtn = document.getElementById('create-btn');
             // 表单生成容器
             var formContent = document.getElementById('form-content');
             gg.addEvent(createBtn, 'click', function(ev) {
+                // console.info(obj);
                 // var oDiv = document.createElement('div');
-                var label = document.createElement('label');
-                label.innerText = '213123';
-                var inp = document.createElement('input');
-                var tip = document.createElement('div');
-                label.appendChild(inp);
-                label.appendChild(tip);
-                formContent.appendChild(label);
+                // var label = document.createElement('label');
+                // label.innerText = '213123';
+                // var inp = document.createElement(obj.name);
+                // var tip = document.createElement('div');
+                // label.appendChild(inp);
+                // label.appendChild(tip);
+                // formContent.appendChild(label);
             });
 
         };
@@ -110,7 +76,7 @@
         this.init = function() {
             this.tagName();
             this.regGroup();
-            this.create();
+            this.create(obj);
         };
         this.init();
     }
