@@ -19,6 +19,7 @@ body {
 .row {
     min-height: 50px;
     min-width: 780px;
+    display: block;
 }
 
 .container {
@@ -130,17 +131,17 @@ body {
     box-shadow: 0px 0px 4px #14F754;
 }
 
-.tip1 {
+.tip {
     margin: 10px;
     color: #999;
     font-size: 14px;
 }
-
+.tip1{
+    display:block;
+}
 .tip2 {
     display: inline-block;
-    margin: 10px;
-    color: #999;
-    font-size: 14px;
+
 }
 
 .tip.error {
