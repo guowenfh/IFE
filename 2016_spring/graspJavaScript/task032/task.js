@@ -5,19 +5,17 @@
      * 创建表单
      */
     function createForm() {
-        var obj = {
-
-        };
+        var tagGroup = document.querySelector('.tag-group'); // 标签类型
+        var inptypeGroup = document.querySelector('.inptype-group'); // input框的类型
+        var lengthGroup = document.querySelector('.length-group'); // input的长度限制
+        var textareaGroup = document.querySelector('.textarea-group'); // 文本域
+        var labelText = document.getElementById('label-text'); // 标签描述
+        var formContent = document.getElementById('form-content'); // 表单生成容器
 
         /**
          * 获得选中的tagName
          */
         this.tagName = function() {
-            var tagGroup = document.querySelector('.tag-group');
-            var inptypeGroup = document.querySelector('.inptype-group');
-            var lengthGroup = document.querySelector('.length-group');
-            var textareaGroup = document.querySelector('.textarea-group');
-            var labelText = document.getElementById('label-text');
             gg.delegate(tagGroup, 'input', 'click', function(ev) {
                 if (this.value === 'input') {
                     inptypeGroup.style.display = 'block';
@@ -41,8 +39,6 @@
          */
         this.regGroup = function() {
             var regMap = checkArr.input;
-            var inptypeGroup = document.querySelector('.inptype-group');
-            var labelText = document.getElementById('label-text');
             gg.delegate(inptypeGroup, 'input', 'click', function() {
                 labelText.value = regMap[this.value].name;
             });
@@ -50,33 +46,43 @@
 
         /**
          * 点击创建按钮
-         * @param {Object} obj 表单生成项
          */
-        this.create = function(obj) {
+        this.create = function() {
             var createBtn = document.getElementById('create-btn');
             // 表单生成容器
-            var formContent = document.getElementById('form-content');
             gg.addEvent(createBtn, 'click', function(ev) {
-                // console.info(obj);
-                // var oDiv = document.createElement('div');
-                // var label = document.createElement('label');
-                // label.innerText = '213123';
-                // var inp = document.createElement(obj.name);
+
+                var tagName = tagGroup.querySelector('input:checked').value; // 标签名字
+                var inp = document.createElement(tagName); // 创建form标签
+
+                if (tagName === 'input') {
+                    var inputType = inptypeGroup.querySelector('input:checked').value; // input类型
+                    inp.type = inputType;
+                }
+                console.info(inputType);
+                console.info(tagName);
+                var labelValue = document.getElementById('label-text').value;
+                var label = document.createElement('label');
+                label.innerText = labelValue;
+
                 // var tip = document.createElement('div');
                 // label.appendChild(inp);
                 // label.appendChild(tip);
-                // formContent.appendChild(label);
+                formContent.appendChild(label);
             });
 
         };
+        this.createInput = function() {
 
+        };
         /**
          * 初始化各种方法
          */
         this.init = function() {
+
             this.tagName();
             this.regGroup();
-            this.create(obj);
+            this.create();
         };
         this.init();
     }
