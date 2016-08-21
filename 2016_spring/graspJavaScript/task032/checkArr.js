@@ -53,7 +53,7 @@ var checkArr = {
     radio: {
         name: '单选框',
     },
-    check: {
+    checkbox: {
         name: '复选框',
     },
     select: {

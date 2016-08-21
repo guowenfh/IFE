@@ -2,19 +2,25 @@ body {
     padding: 20px;
     font-family: "微软雅黑";
 }
-*{
+
+* {
     box-sizing: border-box;
 }
-.row::after, .row::before ,
-.container::after, .container::before {
+
+.row::after,
+.row::before,
+.container::after,
+.container::before {
     content: "";
     display: table;
     clear: both;
 }
-.container{
+
+.container {
     max-width: 1000px;
-    margin:auto;
+    margin: auto;
 }
+
 .row [class *=col-] {
     float: left;
     height: 80px;
@@ -27,12 +33,14 @@ body {
 .col-80 {
     width: 80%;
 }
-.inp-label{
-    height:30px;
+
+.inp-label {
+    height: 30px;
     line-height: 30px;
     text-align: right;
     padding-right: 20px;
 }
+
 .input {
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -41,19 +49,22 @@ body {
     outline: none;
     padding-left: 10px;
 }
-.btn-primary{
+
+.btn-primary {
     float: right;
     background-color: #2869E4;
-    border:none;
+    border: none;
     padding: 8px 15px;
-    color:#fff;
-    border-radius:5px;
-    outline:none;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
     cursor: pointer;
 }
-.btn-primary:active{
+
+.btn-primary:active {
     background-color: #4BA1F6;
 }
+
 .input:focus {
     box-shadow: 0px 0px 4px #2869E4;
 }

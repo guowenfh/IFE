@@ -43,6 +43,10 @@ body {
     width: 65%;
 }
 
+.col-80 {
+    width: 80%;
+}
+
 .btn {
     float: right;
     border: none;
@@ -96,4 +100,62 @@ body {
 
 .btn-red:active {
     background-color: #E25D5D;
+}
+
+.inp-label {
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.input {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 50%;
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.input:focus {
+    box-shadow: 0px 0px 4px #2869E4;
+}
+
+.input.error {
+    box-shadow: 0px 0px 4px red;
+}
+
+.input.success {
+    box-shadow: 0px 0px 4px #14F754;
+}
+
+.tip1 {
+    margin: 10px;
+    color: #999;
+    font-size: 14px;
+}
+
+.tip2 {
+    display: inline-block;
+    margin: 10px;
+    color: #999;
+    font-size: 14px;
+}
+
+.tip.error {
+    color: red;
+}
+
+.tip.success {
+    color: #14F754;
+}
+
+.input-type {
+    height: 30px;
+    line-height: 30px;
+}
+
+.input-type input {
+    margin: 0 10px;
 }

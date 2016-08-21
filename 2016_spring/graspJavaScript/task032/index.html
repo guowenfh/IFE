@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>IFE JavaScript Task 31</title>
+    <title>IFE JavaScript Task 32</title>
     <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/normalize/4.2.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="base.css">
 </head>
@@ -19,7 +19,7 @@
                     <label><input type="radio" name= "tagName" value="input" checked>输入框</label>
                     <label><input type="radio" name= "tagName" value="textarea">文本域</label>
                     <label><input type="radio" name= "tagName" value="radio">单选框</label>
-                    <label><input type="radio" name= "tagName" value="check">多选框</label>
+                    <label><input type="radio" name= "tagName" value="checkbox">多选框</label>
                     <label><input type="radio" name= "tagName" value="select">下拉框</label>
                 </fieldset>
                 <fieldset class="length-group">
@@ -43,8 +43,8 @@
                     <label>
                         样式
                         <select class="class-select">
-                            <option value="default1">样式一</option>
-                            <option value="default2">样式二</option>
+                            <option value="tip1">样式一</option>
+                            <option value="tip2">样式二</option>
                         </select>
                     </label>
                 </fieldset>
@@ -58,7 +58,29 @@
             <form class="col-65 form-content">
                 <fieldset>
                     <legend style="text-align:center;">生成区域</legend>
-                    <div id="form-content"></div>
+                    <div id="form-content">
+                        <label class="row">
+                            <div class="col-20 inp-label">
+                                asd
+                            </div>
+                            <div class="col-80 ">
+                                <input type="tel" class="input">
+                                <p class="tip2">asdsa</p>
+                            </div>
+                        </label>
+                        <label class="row">
+                            <div class="col-20 inp-label">
+                                asd
+                            </div>
+                            <div class="col-80 input-type">
+                                <select class="">
+                                    <option value="">12321</option>
+                                    <option value="">12321</option>
+                                    <option value="">12321</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
                 </fieldset>
             </form>
         </div>
