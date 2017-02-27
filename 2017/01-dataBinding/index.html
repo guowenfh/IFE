@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>动态数据绑定（一）</title>
+</head>
+
+<body>
+    <img src="https://ww4.sinaimg.cn/large/006tNc79gy1fd5egee10lj31iy27o4ad.jpg" style="max-width: 100%">
+    <script>
+    (function() {
+        function Observer(data) {
+            this.data = data;
+            this.walk(data);
+        }
+        Observer.prototype.walk = function(obj) {
+            let value;
+            for (let key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    value = obj[key];
+                    // 这里进行判断，如果还没有遍历到最底层，继续new Observer
+                    if (typeof value === 'object') {
+                        new Observer(value);
+                    }
+
+                    this.convert(key, value);
+                }
+            }
+        };
+        Observer.prototype.convert = function(key, value) {
+            Object.defineProperty(this.data, key, {
+                configurable: true,
+                enumerable: true,
+                get: function() {
+                    console.log('你访问了' + key);
+                    return value;
+                },
+                set: function(newVal) {
+                    console.log('你设置了' + key);
+                    console.log('新的' + key + ' = ' + newVal);
+                    if (newVal === value) return;
+                    value = newVal;
+                },
+            });
+        };
+        let app1 = new Observer({
+            name: 'youngwind',
+            age: 25
+        });
+
+        let app2 = new Observer({
+            university: 'bupt',
+            major: 'computer'
+        });
+
+        // 要实现的结果如下：
+        app1.data.name // 你访问了 name
+        app1.data.age = 100; // 你设置了 age，新的值为100
+        app2.data.university // 你访问了 university
+        app2.data.major = 'science' // 你设置了 major，新的值为 science
+    })();
+    </script>
+</body>
+
+</html>
